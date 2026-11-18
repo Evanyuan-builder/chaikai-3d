@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>拆开看看 · 一甑汾酒是怎么蒸出来的</title>
+<meta name="description" content="往下滑，把一套古法白酒蒸馏器一层层拆开。8 个零件全部由 Aholo Lux3D 从一句话生成。">
+<meta property="og:title" content="拆开看看 · 一甑汾酒是怎么蒸出来的">
+<meta property="og:description" content="往下滑，把一套古法白酒蒸馏器一层层拆开。">
+<style>
+:root{
+  --bg:#f5f5f7;--panel:#fff;--ink:#1d1d1f;--sub:#6e6e73;--line:rgba(0,0,0,.08);
+  --accent:#0071e3;--r:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased}
+#stage{position:fixed;inset:0;width:100vw;height:100vh;display:block;outline:none;touch-action:pan-y}
+#loading{position:fixed;inset:0;display:grid;place-items:center;background:var(--bg);z-index:20;
+  transition:opacity .6s ease}
+#loading.done{opacity:0;pointer-events:none}
+#loading .bar{width:200px;height:2px;background:var(--line);border-radius:2px;overflow:hidden;margin-top:14px}
+#loading .bar i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s ease}
+#loading p{font-size:13px;color:var(--sub);text-align:center}
+
+/* 右侧叙事 */
+main{position:relative;z-index:2;pointer-events:none}
+section{min-height:100vh;display:flex;align-items:center;justify-content:flex-end;padding:0 6vw}
+.card{pointer-events:auto;width:min(420px,40vw);background:rgba(255,255,255,.86);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);
+  border:1px solid var(--line);border-radius:var(--r);padding:28px 28px 24px;
+  box-shadow:0 1px 2px rgba(0,0,0,.04),0 12px 32px rgba(0,0,0,.06);
+  opacity:.35;transform:translateY(12px);transition:opacity .5s ease,transform .5s cubic-bezier(.23,1,.32,1)}
+section.on .card{opacity:1;transform:none}
+.kicker{font-size:12px;letter-spacing:.08em;color:var(--accent);font-weight:600;margin-bottom:10px}
+h1{font-size:44px;line-height:1.08;letter-spacing:-.02em;font-weight:700;margin-bottom:14px}
+h2{font-size:28px;line-height:1.15;letter-spacing:-.015em;font-weight:700;margin-bottom:12px}
+p{font-size:16px;line-height:1.7;color:#333}
+p+p{margin-top:10px}
+.note{font-size:12px;color:var(--sub);margin-top:14px;padding-top:12px;border-top:1px solid var(--line);line-height:1.6}
+.note a{color:var(--sub)}
+.tag{display:inline-block;font-size:12px;padding:3px 9px;border-radius:999px;background:#eef4fd;color:var(--accent);margin:0 6px 6px 0}
+.hint{font-size:13px;color:var(--sub);margin-top:16px}
+ol.prompts{list-style:none;margin-top:12px;max-height:38vh;overflow:auto;border-top:1px solid var(--line)}
+ol.prompts li{font-size:12.5px;line-height:1.55;color:#444;padding:9px 0;border-bottom:1px solid var(--line)}
+ol.prompts b{color:var(--ink);font-weight:600;margin-right:6px}
+
+/* 点选零件的浮卡 */
+#tip{position:fixed;left:24px;bottom:24px;z-index:5;width:min(360px,calc(100vw - 48px));
+  background:rgba(255,255,255,.92);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
+  border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:14px;line-height:1.6;
+  box-shadow:0 12px 32px rgba(0,0,0,.08);opacity:0;transform:translateY(8px);pointer-events:none;
+  transition:opacity .25s ease,transform .25s cubic-bezier(.23,1,.32,1)}
+#tip.show{opacity:1;transform:none;pointer-events:auto}
+#tip b{display:block;font-size:16px;margin-bottom:4px}
+#tip .pr{margin-top:8px;font-size:12px;color:var(--sub)}
+#tip .x{position:absolute;right:10px;top:8px;border:0;background:none;font-size:18px;color:var(--sub);cursor:pointer}
+
+/* 进度点 */
+#dots{position:fixed;left:24px;top:50%;transform:translateY(-50%);z-index:4;display:flex;flex-direction:column;gap:10px}
+#dots i{width:6px;height:6px;border-radius:50%;background:rgba(0,0,0,.18);transition:background .3s,transform .3s}
+#dots i.on{background:var(--accent);transform:scale(1.4)}
+
+@media (max-width:760px){
+  section{align-items:flex-end;justify-content:center;padding:0 16px 7vh}
+  .card{width:100%;padding:22px 20px 18px}
+  h1{font-size:34px} h2{font-size:23px} p{font-size:15px}
+  #dots{display:none}
+  #tip{left:16px;bottom:16px}
+}
+@media (prefers-reduced-motion:reduce){.card,#tip{transition:none}}
+</style>
+<script type="importmap">
+{"imports":{"three":"./vendor/three.module.js","three/addons/":"./vendor/jsm/"}}
+</script>
+</head>
+<body>
+<canvas id="stage" tabindex="0" aria-label="古法蒸馏器 3D 模型，可拖动旋转、点击零件"></canvas>
+<div id="loading"><div><p>正在把蒸馏器搬进来…</p><div class="bar"><i></i></div></div></div>
+<div id="dots"></div>
+<div id="tip" role="dialog"><button class="x" aria-label="关闭">×</button><b></b><div class="d"></div><div class="pr"></div></div>
+
+<main id="story">
+  <section data-step="hero"><div class="card">
+    <div class="kicker">拆开看看 · 第一件</div>
+    <h1>一甑汾酒，<br>是怎么蒸出来的</h1>
+    <p>这是一套古法白酒蒸馏器。往下滑，它会一层层拆开，从最底下那把火开始，一直讲到酒流进坛子。</p>
+    <p class="hint">可以拖动模型自己转，点任意一个零件看它是干什么的。</p>
+  </div></section>
+
+  <section data-step="zao"><div class="card">
+    <div class="kicker">01 · 灶</div>
+    <h2>一切从一把火开始</h2>
+    <p>灶里烧火，把锅里的水烧成蒸汽。整套设备没有电机、没有泵，唯一的动力就是这口灶。</p>
+    <p>火候是门手艺。汾酒讲究「缓汽蒸馏、大汽追尾」：开始和出酒的时候火要小，快结束时才把火开大，把最后一点酒逼出来。</p>
+    <div class="note">工艺口诀出处：<a href="http://www.fenyang.gov.cn/chnl1005/chnl4548/201902/t20190222_1207977.shtml" target="_blank" rel="noopener">汾阳市人民政府 · 汾酒酿制技艺介绍</a></div>
+  </div></section>
+
+  <section data-step="diguo"><div class="card">
+    <div class="kicker">02 · 底锅</div>
+    <h2>锅里只有清水</h2>
+    <p>最容易误会的一点：粮食不在这口锅里。底锅只装水，水烧开变成蒸汽，往上走。</p>
+  </div></section>
+
+  <section data-step="bi"><div class="card">
+    <div class="kicker">03 · 甑箅</div>
+    <h2>一张会透气的竹篦子</h2>
+    <p>满是小孔的篦子横在锅和甑桶之间：蒸汽能穿上去，上面的粮食掉不下来。</p>
+  </div></section>
+
+  <section data-step="zeng"><div class="card">
+    <div class="kicker">04 · 甑桶和酒醅</div>
+    <h2>酒，藏在这一桶粮食里</h2>
+    <p>甑桶里装的是发酵好的高粱，叫酒醅。汾酒的酒醅是在埋进地里的陶缸里发酵的。</p>
+    <p>装桶叫「上甑」，汾酒的口诀是五个字：<b>轻、松、薄、匀、埋</b>。哪里冒汽，就往哪里撒一层薄醅盖住。不压实，蒸汽才能均匀穿过每一层，把酒和香味一起带上来。</p>
+    <div class="note">口诀出处：汾阳市人民政府、<a href="http://www.news.cn/info/20220817/4dd55bfc557940bab2304478e5eb406b/c.html" target="_blank" rel="noopener">新华网</a></div>
+  </div></section>
+
+  <section data-step="tianguo"><div class="card">
+    <div class="kicker">05 · 天锅</div>
+    <h2>一口装着冷水的锅</h2>
+    <p>甑桶顶上扣着一口锅，锅里盛满冷水，锅底是尖的。</p>
+    <p>带着酒的热蒸汽往上冲，一碰到冰凉的锅底就变回液体，顺着尖底一滴一滴往下掉。这一步，就是「蒸馏」里的「馏」。</p>
+    <div class="note">天锅是古法做法的示意。现在的酒厂多用不锈钢甑桶，再接一套冷凝器。</div>
+  </div></section>
+
+  <section data-step="jiupan"><div class="card">
+    <div class="kicker">06 · 接酒盘和导流管</div>
+    <h2>接住每一滴</h2>
+    <p>尖底正下方放着一只小盘，酒滴进盘里，再顺着导流管流出甑桶，往外面的坛子里走。</p>
+  </div></section>
+
+  <section data-step="tan"><div class="card">
+    <div class="kicker">07 · 酒坛</div>
+    <h2>掐头，去尾</h2>
+    <p>不是流出来的都要。最先出来的一公斤左右叫「酒头」，度数在 75% 以上，倒回去重新发酵。</p>
+    <p>中间的是正酒。等流出来的酒降到 30% 左右，就开始「去尾」，酒尾另外存起来，下一甑再蒸。</p>
+    <div class="note">数字出处：汾阳市人民政府 · 汾酒酿制技艺介绍</div>
+  </div></section>
+
+  <section data-step="all"><div class="card">
+    <div class="kicker">08 · 全部拆开</div>
+    <h2>同一批粮食，蒸两回</h2>
+    <p>汾酒的工艺叫「清蒸二次清」：高粱先单独蒸熟，同一批酒醅发酵、蒸馏两次。头一回出的酒叫「大楂」，第二回不加新粮、只加曲，出的叫「二楂」。</p>
+    <p class="hint">现在整套都拆开了，拖着转一圈看看。</p>
+  </div></section>
+
+  <section data-step="made"><div class="card">
+    <div class="kicker">这套模型是怎么来的</div>
+    <h2>8 个零件，没有一个是手工建模</h2>
+    <p>每个零件都是用 <b>Aholo Lux3D</b> 从一句中文描述生成的，带材质，大约两分钟一个。没有照片，也没有建模软件。拼装、拆解、蒸汽和酒滴的动画，都是网页里的代码实时算的。</p>
+    <p>换一件东西，比如一把老锁、一盏走马灯，同样的流程就能再出一堂课。</p>
+    <ol class="prompts" id="prompts"></ol>
+  </div></section>
+</main>
+
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+// ---------- 零件：w=目标宽度，h=限制高度（可选），y=底部高度，ex=拆开时上移量 ----------
+const PARTS = [
+  {id:'zao',     file:'01_zao',     name:'灶', w:1.6,  y:0,    ex:0,
+   desc:'砖砌的灶，正面是烧柴火的口。烧水出蒸汽，是整套设备唯一的动力。',
+   prompt:'中国传统农村酿酒作坊的砖砌灶台：方形青砖灶，正面有一个拱形的烧柴火口，里面有木柴和火，灶顶是一个圆形开口用来放大铁锅，单独一个物体'},
+  {id:'diguo',   file:'02_diguo',   name:'底锅', w:1.12, y:1.2,  ex:0.55,
+   desc:'只装清水，不装粮食。水烧开变成蒸汽往上走。',
+   prompt:'一口圆形大铁锅，敞口，锅里装着清水，铸铁黑色质感，锅沿较宽，单独一个物体'},
+  {id:'bi',      file:'03_bi',      name:'甑箅', w:1.05, y:1.5,  ex:1.15, rx:Math.PI/2,
+   desc:'满是小孔的竹篦子：蒸汽能穿过去，粮食掉不下来。',
+   prompt:'一个圆形的竹编篦子：扁平圆盘，竹篾编成的网格有很多小孔，边缘有一圈竹框，单独一个物体'},
+  {id:'zeng',    file:'04_zeng',    name:'甑桶', w:1.3,  y:1.5,  ex:1.9, sy:1.12,
+   desc:'装酒醅的大木桶，上下开口。蒸汽从底下穿过整桶粮食。',
+   prompt:'传统中国白酒蒸馏用的木制甑桶：由竖直木板拼成、外面箍着两道铁箍的大圆木桶，上口略大下口略小像花盆，上下都开口，没有盖子，旧木头质感，单独一个物体'},
+  {id:'jiupei',  file:'08_jiupei',  name:'酒醅', w:1.12, h:0.55, y:1.62, ex:2.75,
+   desc:'在地缸里发酵好的高粱。上甑口诀：轻、松、薄、匀、埋。',
+   prompt:'一堆发酵好的高粱酒醅：红褐色湿润的碎高粱粒混着稻壳，堆成一个扁平的圆饼状，表面松散颗粒感，单独一个物体'},
+  {id:'jiupan',  file:'06_jiupan',  name:'接酒盘', w:0.62, y:2.62, ex:3.55, ry:0,
+   desc:'放在天锅尖底正下方，接住滴下来的酒。',
+   prompt:'一个小小的圆形锡制接酒盘，盘边伸出一根细长的斜向下的导流管，金属质感，单独一个物体'},
+  {id:'tianguo', file:'05_tianguo', name:'天锅', w:1.5, h:0.62, y:2.7, ex:4.35,
+   desc:'盛满冷水、锅底是尖的。热酒汽碰到冰凉的锅底变回液体，一滴滴往下掉。',
+   prompt:'古法酿酒用的天锅：一口浅浅的圆形锡锅，锅底向下凸成尖锥形，锅里盛着冷水，锅沿宽，金属质感，单独一个物体'},
+  {id:'tan',     file:'07_tan',     name:'酒坛', w:0.62, y:0,   x:1.75, z:0.35, ex:0, exX:0.6,
+   desc:'接酒。最先出的酒头不要，中间是正酒，最后的酒尾留着下一甑再蒸。',
+   prompt:'一个传统陶土酒坛：小口、圆鼓肚、深褐色釉面，坛口敞开，单独一个物体'},
+];
+
+// ---------- 每一屏：聚焦哪个零件、拆开多少、镜头 ----------
+const STEPS = {
+  hero:   {focus:null,      ex:0,   cam:[4.2,3.0,5.2], tgt:[0.45,1.7,0], steam:1, flow:1},
+  zao:    {focus:['zao'],   ex:0.35,cam:[2.6,1.4,3.2], tgt:[0,0.7,0],   fire:1},
+  diguo:  {focus:['diguo'], ex:0.55,cam:[2.4,2.6,2.9], tgt:[0,1.6,0],   steam:1},
+  bi:     {focus:['bi'],    ex:0.65,cam:[2.2,3.6,2.6], tgt:[0,2.3,0],   steam:1},
+  zeng:   {focus:['zeng','jiupei'], ex:0.55, cam:[3.0,3.4,3.4], tgt:[0,2.7,0], steam:1},
+  tianguo:{focus:['tianguo'],ex:0.25,cam:[2.6,4.3,2.8], tgt:[0,3.3,0],  steam:1, drip:1},
+  jiupan: {focus:['jiupan','pipe'],ex:0.12,cam:[2.8,3.4,3.0], tgt:[0.5,2.6,0], drip:1, flow:1},
+  tan:    {focus:['tan','pipe'],ex:0,  cam:[3.6,1.6,3.2], tgt:[1.4,0.8,0.2], flow:1},
+  all:    {focus:null,      ex:1,   cam:[6.6,4.6,7.2], tgt:[0.3,3.6,0]},
+  made:   {focus:null,      ex:0,   cam:[4.4,3.2,5.0], tgt:[0.45,1.7,0], steam:1, flow:1, spin:1},
+};
+
+// ---------- 场景 ----------
+const canvas=document.getElementById('stage');
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.outputColorSpace=THREE.SRGBColorSpace;
+renderer.toneMapping=THREE.ACESFilmicToneMapping; renderer.toneMappingExposure=1.05;
+renderer.shadowMap.enabled=true; renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+const scene=new THREE.Scene(); scene.background=new THREE.Color('#f5f5f7');
+// 金属件（天锅、接酒盘）没有环境反射会发黑
+scene.environment=new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(),0.04).texture; scene.environmentIntensity=0.7;
+const camera=new THREE.PerspectiveCamera(35,1,0.05,100);
+const controls=new OrbitControls(camera,canvas);
+controls.enableDamping=true; controls.enablePan=false; controls.enableZoom=false;
+controls.minPolarAngle=0.2; controls.maxPolarAngle=1.5;
+
+scene.add(new THREE.HemisphereLight(0xffffff,0xd8d4cc,1.4));
+const sun=new THREE.DirectionalLight(0xffffff,2.2); sun.position.set(4,8,5); sun.castShadow=true;
+sun.shadow.mapSize.set(2048,2048); Object.assign(sun.shadow.camera,{left:-4,right:4,top:6,bottom:-2}); scene.add(sun);
+const rim=new THREE.DirectionalLight(0xffffff,0.8); rim.position.set(-5,4,-4); scene.add(rim);
+const ground=new THREE.Mesh(new THREE.CircleGeometry(6,64),new THREE.ShadowMaterial({opacity:.12}));
+ground.rotation.x=-Math.PI/2; ground.receiveShadow=true; scene.add(ground);
+
+// 灶里的火光
+const fire=new THREE.PointLight(0xff7a2a,0,3,1.6); fire.position.set(0,0.35,0.75); scene.add(fire);
+
+const rig=new THREE.Group(); scene.add(rig);
+const groups={}; const mats={};
+
+// ---------- 加载 ----------
+const loader=new GLTFLoader(); loader.setMeshoptDecoder(MeshoptDecoder);
+const bar=document.querySelector('#loading i'); let loaded=0;
+function load(p){
+  return new Promise((res,rej)=>loader.load(`models/${p.file}.glb`,g=>{
+    const m=g.scene;
+    if(p.rx) m.rotation.x=p.rx;
+    if(p.ry!==undefined) m.rotation.y=p.ry;
+    m.updateMatrixWorld(true);
+    let box=new THREE.Box3().setFromObject(m), s=box.getSize(new THREE.Vector3());
+    const k=p.w/Math.max(s.x,s.z);
+    m.scale.multiplyScalar(k);
+    if(p.sy) m.scale.y*=p.sy;
+    m.updateMatrixWorld(true);
+    box=new THREE.Box3().setFromObject(m); s=box.getSize(new THREE.Vector3());
+    if(p.h && s.y>p.h){ m.scale.y*=p.h/s.y; m.updateMatrixWorld(true); box=new THREE.Box3().setFromObject(m); }
+    const c=box.getCenter(new THREE.Vector3());
+    m.position.x-=c.x; m.position.z-=c.z; m.position.y-=box.min.y;
+    const grp=new THREE.Group(); grp.add(m); grp.userData.part=p;
+    grp.position.set(p.x||0,p.y,p.z||0); grp.userData.base=grp.position.clone();
+    mats[p.id]=[];
+    m.traverse(o=>{ if(o.isMesh){ o.castShadow=true; o.receiveShadow=true;
+      o.material=o.material.clone(); o.material.transparent=true; mats[p.id].push(o.material); o.userData.pid=p.id; }});
+    groups[p.id]=grp; rig.add(grp);
+    loaded++; bar.style.width=(loaded/PARTS.length*100)+'%'; res();
+  },undefined,rej));
+}
+
+// ---------- 导流管（代码画的） ----------
+const pipeCurve=new THREE.CatmullRomCurve3([
+  new THREE.Vector3(0.28,2.66,0.02), new THREE.Vector3(0.72,2.58,0.08),
+  new THREE.Vector3(1.15,2.2,0.2),  new THREE.Vector3(1.6,1.35,0.32),
+  new THREE.Vector3(1.74,0.95,0.35)]);
+const pipeMat=new THREE.MeshStandardMaterial({color:0xb9bcc2,metalness:.85,roughness:.35,transparent:true});
+const pipe=new THREE.Mesh(new THREE.TubeGeometry(pipeCurve,64,0.022,12,false),pipeMat);
+pipe.castShadow=true; pipe.userData.pid='pipe'; rig.add(pipe); mats.pipe=[pipeMat];
+
+// ---------- 蒸汽、酒滴、酒流 ----------
+function softDot(){
+  const c=document.createElement('canvas'); c.width=c.height=64; const g=c.getContext('2d');
+  const r=g.createRadialGradient(32,32,0,32,32,32); r.addColorStop(0,'rgba(255,255,255,1)'); r.addColorStop(1,'rgba(255,255,255,0)');
+  g.fillStyle=r; g.fillRect(0,0,64,64); return new THREE.CanvasTexture(c);
+}
+const N=260, steamGeo=new THREE.BufferGeometry(), sp=new Float32Array(N*3), sl=new Float32Array(N);
+for(let i=0;i<N;i++){ sl[i]=Math.random(); }
+steamGeo.setAttribute('position',new THREE.BufferAttribute(sp,3));
+const steamMat=new THREE.PointsMaterial({size:.16,map:softDot(),transparent:true,opacity:0,depthWrite:false,color:0xffffff});
+const steam=new THREE.Points(steamGeo,steamMat); rig.add(steam);
+
+const D=6, drops=[]; const dropMat=new THREE.MeshPhysicalMaterial({color:0xe9f3ff,transmission:.6,roughness:.05,thickness:.1,transparent:true,opacity:0});
+for(let i=0;i<D;i++){ const d=new THREE.Mesh(new THREE.SphereGeometry(.028,12,12),dropMat); d.userData.t=i/D; rig.add(d); drops.push(d); }
+const F=14, flows=[]; const flowMat=new THREE.MeshStandardMaterial({color:0xf3e7c9,emissive:0x6b5320,emissiveIntensity:.2,transparent:true,opacity:0});
+for(let i=0;i<F;i++){ const f=new THREE.Mesh(new THREE.SphereGeometry(.03,10,10),flowMat); f.userData.t=i/F; rig.add(f); flows.push(f); }
+
+// ---------- 状态 ----------
+const S={ex:0,steam:0,drip:0,flow:0,fire:0,spin:0};
+let step=STEPS.hero, camGoal=new THREE.Vector3(...step.cam), tgtGoal=new THREE.Vector3(...step.tgt), flying=0;
+const fade={};
+
+// 镜头离目标的远近：窄屏要退得更远
+const camK=()=>innerWidth>760?1.5:2.1;
+function camFor(st){ const t=new THREE.Vector3(...st.tgt); return new THREE.Vector3(...st.cam).sub(t).multiplyScalar(camK()).add(t); }
+function setStep(name){
+  step=STEPS[name]; camGoal.copy(camFor(step)); tgtGoal.set(...step.tgt); flying=1.6;
+  document.querySelectorAll('#dots i').forEach((d,i)=>d.classList.toggle('on',order[i]===name));
+}
+
+function resize(){
+  const w=innerWidth,h=innerHeight; renderer.setSize(w,h,false); camera.aspect=w/h;
+  // 宽屏时把模型挪到左边，给右侧卡片留位置；窄屏挪到上面
+  camera.setViewOffset(w,h, w>760? w*0.16:0, w>760?0:h*0.14, w,h);
+  camera.updateProjectionMatrix();
+}
+addEventListener('resize',resize);
+
+// ---------- 主循环 ----------
+const clock=new THREE.Clock(); const tmp=new THREE.Vector3();
+const lerp=(a,b,k)=>a+(b-a)*k;
+function tick(){
+  const dt=Math.min(clock.getDelta(),0.05), t=clock.elapsedTime, k=1-Math.pow(0.0015,dt);
+  for(const key of ['ex','steam','drip','flow','fire','spin']) S[key]=lerp(S[key],step[key]||0,k);
+
+  // 拆开
+  for(const p of PARTS){ const g=groups[p.id]; if(!g) continue;
+    g.position.y=g.userData.base.y+S.ex*p.ex;
+    g.position.x=g.userData.base.x+S.ex*(p.exX||0);
+    // 聚焦：别的零件变淡
+    const on=!step.focus||step.focus.includes(p.id);
+    fade[p.id]=lerp(fade[p.id]??1,on?1:0.14,k);
+    for(const m of mats[p.id]){ m.opacity=fade[p.id]; m.depthWrite=fade[p.id]>0.6; }
+  }
+  const pipeOn=(!step.focus||step.focus.includes('pipe'))?1:0.14;
+  fade.pipe=lerp(fade.pipe??1,S.ex>0.08?0:pipeOn,k); pipeMat.opacity=fade.pipe; pipe.visible=fade.pipe>0.02;
+
+  // 蒸汽：从底锅往上，穿过甑桶到天锅底
+  const yBot=1.45+S.ex*0.55, yTop=2.75+S.ex*4.3;
+  for(let i=0;i<N;i++){
+    sl[i]+=dt*(0.18+0.12*((i*7)%5)/5); if(sl[i]>1) sl[i]-=1;
+    const a=i*2.399+t*0.3, r=0.45*Math.sqrt((i%37)/37)*(1-sl[i]*0.35);
+    sp[i*3]=Math.cos(a)*r; sp[i*3+1]=lerp(yBot,yTop,sl[i]); sp[i*3+2]=Math.sin(a)*r;
+  }
+  steamGeo.attributes.position.needsUpdate=true; steamMat.opacity=0.22*S.steam;
+
+  // 酒滴：天锅尖底 → 接酒盘
+  const tipY=2.95+S.ex*4.35, panY=2.7+S.ex*3.55;
+  drops.forEach(d=>{ d.userData.t=(d.userData.t+dt*0.7)%1; const u=d.userData.t;
+    d.position.set(0,lerp(tipY,panY,u*u),0); d.scale.setScalar(u<0.1?u*10:1); });
+  dropMat.opacity=S.drip;
+
+  // 酒流：沿导流管进坛子
+  flows.forEach(f=>{ f.userData.t=(f.userData.t+dt*0.28)%1; pipeCurve.getPointAt(f.userData.t,tmp); f.position.copy(tmp); });
+  flowMat.opacity=S.flow*fade.pipe;
+
+  // 火光
+  fire.intensity=S.fire*(2.2+Math.sin(t*13)*0.5+Math.sin(t*7.3)*0.4);
+
+  // 镜头
+  if(flying>0){ flying-=dt; camera.position.lerp(camGoal,1-Math.pow(0.02,dt)); }
+  controls.target.lerp(tgtGoal,1-Math.pow(0.02,dt));
+  if(S.spin>0.5 && !dragging) rig.rotation.y+=dt*0.15; else rig.rotation.y=lerp(rig.rotation.y,0,k*0.5);
+  controls.update(); renderer.render(scene,camera); requestAnimationFrame(tick);
+}
+
+// ---------- 点零件 ----------
+let dragging=false, down=null;
+canvas.addEventListener('pointerdown',e=>{down=[e.clientX,e.clientY];dragging=true;flying=0;});
+addEventListener('pointerup',e=>{ dragging=false; if(!down) return;
+  const moved=Math.hypot(e.clientX-down[0],e.clientY-down[1]); down=null; if(moved>5||e.target!==canvas) return;
+  const r=canvas.getBoundingClientRect(), ray=new THREE.Raycaster();
+  ray.setFromCamera({x:(e.clientX-r.left)/r.width*2-1,y:-(e.clientY-r.top)/r.height*2+1},camera);
+  const hit=ray.intersectObjects(rig.children,true).find(h=>h.object.userData.pid&&h.object.visible);
+  if(hit) showTip(hit.object.userData.pid); else hideTip();
+});
+const tip=document.getElementById('tip');
+function showTip(id){
+  if(id==='pipe'){ tip.querySelector('b').textContent='导流管'; tip.querySelector('.d').textContent='把接酒盘里的酒引出甑桶，流进坛子。';
+    tip.querySelector('.pr').textContent='这根管子是网页代码画的，不是生成的。'; }
+  else{ const p=PARTS.find(x=>x.id===id); tip.querySelector('b').textContent=p.name; tip.querySelector('.d').textContent=p.desc;
+    tip.querySelector('.pr').textContent='Lux3D 提示词：'+p.prompt; }
+  tip.classList.add('show');
+}
+function hideTip(){tip.classList.remove('show');}
+tip.querySelector('.x').onclick=hideTip;
+
+// ---------- 滚动 ----------
+const secs=[...document.querySelectorAll('section')], order=secs.map(s=>s.dataset.step);
+document.getElementById('dots').innerHTML=order.map(()=>'<i></i>').join('');
+const io=new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){
+  secs.forEach(s=>s.classList.toggle('on',s===e.target)); setStep(e.target.dataset.step); hideTip(); }}); },{rootMargin:'-45% 0px -45% 0px'});
+secs.forEach(s=>io.observe(s));
+document.getElementById('prompts').innerHTML=PARTS.map(p=>`<li><b>${p.name}</b>${p.prompt}</li>`).join('');
+
+// ---------- 启动 ----------
+resize(); camera.position.copy(camFor(STEPS.hero)); controls.target.set(...STEPS.hero.tgt);
+Promise.all(PARTS.map(load)).then(()=>{
+  document.getElementById('loading').classList.add('done'); secs[0].classList.add('on'); setStep('hero'); tick();
+}).catch(err=>{ document.querySelector('#loading p').textContent='模型加载失败：'+err.message; });
+</script>
+</body>
+</html>
