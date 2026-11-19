@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>拆开看看 · 一甑汾酒是怎么蒸出来的</title>
+<meta name="description" content="往下滑，把一套古法白酒蒸馏器一层层拆开。8 个零件全部由 Aholo Lux3D 从一句话生成。">
+<meta property="og:title" content="拆开看看 · 一甑汾酒是怎么蒸出来的">
+<meta property="og:description" content="往下滑，把一套古法白酒蒸馏器一层层拆开。">
+<style>
+:root{
+  --bg:#04050a;--ink:#f5f5f7;--sub:#a1a1a6;--line:rgba(255,255,255,.1);
+  --accent:#2997ff;--r:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased}
+#stage{position:fixed;inset:0;width:100vw;height:100vh;display:block;outline:none;touch-action:pan-y}
+#loading{position:fixed;inset:0;display:grid;place-items:center;background:var(--bg);z-index:20;transition:opacity .6s ease}
+#loading.done{opacity:0;pointer-events:none}
+#loading .bar{width:200px;height:2px;background:var(--line);border-radius:2px;overflow:hidden;margin-top:14px}
+#loading .bar i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s ease}
+#loading p{font-size:13px;color:var(--sub);text-align:center}
+
+main{position:relative;z-index:2;pointer-events:none}
+section{min-height:100vh;display:flex;align-items:center;justify-content:flex-end;padding:0 6vw}
+section:first-child{min-height:130vh}
+.card{pointer-events:auto;width:min(420px,40vw);background:rgba(16,18,26,.58);
+  -webkit-backdrop-filter:saturate(160%) blur(22px);backdrop-filter:saturate(160%) blur(22px);
+  border:1px solid var(--line);border-radius:var(--r);padding:28px 28px 24px;
+  box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 20px 50px rgba(0,0,0,.45);
+  opacity:.3;transform:translateY(14px);transition:opacity .5s ease,transform .5s cubic-bezier(.23,1,.32,1)}
+section.on .card{opacity:1;transform:none}
+body.intro .card{opacity:0!important;transform:translateY(24px)!important}
+.kicker{font-size:12px;letter-spacing:.08em;color:var(--accent);font-weight:600;margin-bottom:10px}
+h1{font-size:44px;line-height:1.08;letter-spacing:-.02em;font-weight:700;margin-bottom:14px}
+h2{font-size:28px;line-height:1.15;letter-spacing:-.015em;font-weight:700;margin-bottom:12px}
+p{font-size:16px;line-height:1.7;color:#d2d2d7}
+p b{color:#fff}
+p+p{margin-top:10px}
+.note{font-size:12px;color:var(--sub);margin-top:14px;padding-top:12px;border-top:1px solid var(--line);line-height:1.6}
+.note a{color:var(--sub)}
+.hint{font-size:13px;color:var(--sub);margin-top:16px}
+ol.prompts{list-style:none;margin-top:12px;max-height:34vh;overflow:auto;border-top:1px solid var(--line)}
+ol.prompts li{font-size:12.5px;line-height:1.55;color:#c7c7cc;padding:9px 0;border-bottom:1px solid var(--line)}
+ol.prompts b{color:#fff;font-weight:600;margin-right:6px}
+
+#tip{position:fixed;left:24px;bottom:24px;z-index:5;width:min(360px,calc(100vw - 48px));
+  background:rgba(16,18,26,.72);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
+  border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:14px;line-height:1.6;color:#d2d2d7;
+  box-shadow:0 20px 50px rgba(0,0,0,.5);opacity:0;transform:translateY(8px);pointer-events:none;
+  transition:opacity .25s ease,transform .25s cubic-bezier(.23,1,.32,1)}
+#tip.show{opacity:1;transform:none;pointer-events:auto}
+#tip b{display:block;font-size:16px;margin-bottom:4px;color:#fff}
+#tip .pr{margin-top:8px;font-size:12px;color:var(--sub)}
+#tip .x{position:absolute;right:10px;top:8px;border:0;background:none;font-size:18px;color:var(--sub);cursor:pointer}
+
+/* 星云阶段零件旁的名字 */
+.lbl{position:fixed;left:0;top:0;z-index:3;pointer-events:none;font-size:13px;font-weight:600;color:#fff;
+  padding:4px 10px;border-radius:999px;background:rgba(41,151,255,.18);border:1px solid rgba(41,151,255,.45);
+  white-space:nowrap;opacity:0;text-shadow:0 0 12px rgba(41,151,255,.8)}
+
+#dots{position:fixed;left:24px;top:50%;transform:translateY(-50%);z-index:4;display:flex;flex-direction:column;gap:10px}
+#dots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.22);transition:background .3s,transform .3s}
+#dots i.on{background:var(--accent);transform:scale(1.4);box-shadow:0 0 10px var(--accent)}
+#replay{position:fixed;right:20px;top:18px;z-index:6;font-size:12px;color:#d2d2d7;background:rgba(255,255,255,.06);
+  border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+#replay:hover{background:rgba(255,255,255,.12)}
+
+@media (max-width:760px){
+  section{align-items:flex-end;justify-content:center;padding:0 16px 7vh}
+  .card{width:100%;padding:22px 20px 18px}
+  h1{font-size:34px} h2{font-size:23px} p{font-size:15px}
+  #dots{display:none}
+  #tip{left:16px;bottom:16px}
+}
+@media (prefers-reduced-motion:reduce){.card,#tip{transition:none}}
+</style>
+<script type="importmap">
+{"imports":{"three":"../vendor/three.module.js","three/addons/":"../vendor/jsm/"}}
+</script>
+</head>
+<body class="intro">
+<canvas id="stage" tabindex="0" aria-label="古法蒸馏器 3D 模型，可拖动旋转、点击零件"></canvas>
+<div id="loading"><div><p>正在把蒸馏器搬进来…</p><div class="bar"><i></i></div></div></div>
+<div id="dots"></div>
+<button id="replay" aria-label="重播开场">↺ 再炸一次</button>
+<div id="tip" role="dialog"><button class="x" aria-label="关闭">×</button><b></b><div class="d"></div><div class="pr"></div></div>
+<div id="lbls"></div>
+<main id="story">
+  <section data-step="hero"><div class="card">
+    <div class="kicker">拆开看看 · 第一件</div>
+    <h1>一甑汾酒，<br>是怎么蒸出来的</h1>
+    <p>这是一套古法白酒蒸馏器。往下滑，它会一层层拆开，从最底下那把火开始，一直讲到酒流进坛子。</p>
+    <p class="hint">可以拖动模型自己转，点任意一个零件看它是干什么的。</p>
+  </div></section>
+
+  <section data-step="zao"><div class="card">
+    <div class="kicker">01 · 灶</div>
+    <h2>一切从一把火开始</h2>
+    <p>灶里烧火，把锅里的水烧成蒸汽。整套设备没有电机、没有泵，唯一的动力就是这口灶。</p>
+    <p>火候是门手艺。汾酒讲究「缓汽蒸馏、大汽追尾」：开始和出酒的时候火要小，快结束时才把火开大，把最后一点酒逼出来。</p>
+    <div class="note">工艺口诀出处：<a href="http://www.fenyang.gov.cn/chnl1005/chnl4548/201902/t20190222_1207977.shtml" target="_blank" rel="noopener">汾阳市人民政府 · 汾酒酿制技艺介绍</a></div>
+  </div></section>
+
+  <section data-step="diguo"><div class="card">
+    <div class="kicker">02 · 底锅</div>
+    <h2>锅里只有清水</h2>
+    <p>最容易误会的一点：粮食不在这口锅里。底锅只装水，水烧开变成蒸汽，往上走。</p>
+  </div></section>
+
+  <section data-step="bi"><div class="card">
+    <div class="kicker">03 · 甑箅</div>
+    <h2>一张会透气的竹篦子</h2>
+    <p>满是小孔的篦子横在锅和甑桶之间：蒸汽能穿上去，上面的粮食掉不下来。</p>
+  </div></section>
+
+  <section data-step="zeng"><div class="card">
+    <div class="kicker">04 · 甑桶和酒醅</div>
+    <h2>酒，藏在这一桶粮食里</h2>
+    <p>甑桶里装的是发酵好的高粱，叫酒醅。汾酒的酒醅是在埋进地里的陶缸里发酵的。</p>
+    <p>装桶叫「上甑」，汾酒的口诀是五个字：<b>轻、松、薄、匀、埋</b>。哪里冒汽，就往哪里撒一层薄醅盖住。不压实，蒸汽才能均匀穿过每一层，把酒和香味一起带上来。</p>
+    <div class="note">口诀出处：汾阳市人民政府、<a href="http://www.news.cn/info/20220817/4dd55bfc557940bab2304478e5eb406b/c.html" target="_blank" rel="noopener">新华网</a></div>
+  </div></section>
+
+  <section data-step="tianguo"><div class="card">
+    <div class="kicker">05 · 天锅</div>
+    <h2>一口装着冷水的锅</h2>
+    <p>甑桶顶上扣着一口锅，锅里盛满冷水，锅底是尖的。</p>
+    <p>带着酒的热蒸汽往上冲，一碰到冰凉的锅底就变回液体，顺着尖底一滴一滴往下掉。这一步，就是「蒸馏」里的「馏」。</p>
+    <div class="note">天锅是古法做法的示意。现在的酒厂多用不锈钢甑桶，再接一套冷凝器。</div>
+  </div></section>
+
+  <section data-step="jiupan"><div class="card">
+    <div class="kicker">06 · 接酒盘和导流管</div>
+    <h2>接住每一滴</h2>
+    <p>尖底正下方放着一只小盘，酒滴进盘里，再顺着导流管流出甑桶，往外面的坛子里走。</p>
+  </div></section>
+
+  <section data-step="tan"><div class="card">
+    <div class="kicker">07 · 酒坛</div>
+    <h2>掐头，去尾</h2>
+    <p>不是流出来的都要。最先出来的一公斤左右叫「酒头」，度数在 75% 以上，倒回去重新发酵。</p>
+    <p>中间的是正酒。等流出来的酒降到 30% 左右，就开始「去尾」，酒尾另外存起来，下一甑再蒸。</p>
+    <div class="note">数字出处：汾阳市人民政府 · 汾酒酿制技艺介绍</div>
+  </div></section>
+
+  <section data-step="all"><div class="card">
+    <div class="kicker">08 · 全部拆开</div>
+    <h2>同一批粮食，蒸两回</h2>
+    <p>汾酒的工艺叫「清蒸二次清」：高粱先单独蒸熟，同一批酒醅发酵、蒸馏两次。头一回出的酒叫「大楂」，第二回不加新粮、只加曲，出的叫「二楂」。</p>
+    <p class="hint">现在整套都拆开了，拖着转一圈看看。</p>
+  </div></section>
+
+  <section data-step="made"><div class="card">
+    <div class="kicker">这套模型是怎么来的</div>
+    <h2>8 个零件，没有一个是手工建模</h2>
+    <p>每个零件都是用 <b>Aholo Lux3D</b> 从一句中文描述生成的，带材质，大约两分钟一个。没有照片，也没有建模软件。拼装、拆解、蒸汽和酒滴的动画，都是网页里的代码实时算的。</p>
+    <p>换一件东西，比如一把老锁、一盏走马灯，同样的流程就能再出一堂课。</p>
+    <ol class="prompts" id="prompts"></ol>
+  </div></section>
+</main>
+
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+
+const MOBILE = innerWidth<=760;
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// ---------- 零件：w=目标宽度，h=限制高度，y=底部高度，ex=拆开时上移量 ----------
+const PARTS = [
+  {id:'zao',     file:'01_zao',     name:'灶', w:1.6,  y:0,    ex:0,
+   desc:'砖砌的灶，正面是烧柴火的口。烧水出蒸汽，是整套设备唯一的动力。',
+   prompt:'中国传统农村酿酒作坊的砖砌灶台：方形青砖灶，正面有一个拱形的烧柴火口，里面有木柴和火，灶顶是一个圆形开口用来放大铁锅，单独一个物体'},
+  {id:'diguo',   file:'02_diguo',   name:'底锅', w:1.12, y:1.2,  ex:0.55,
+   desc:'只装清水，不装粮食。水烧开变成蒸汽往上走。',
+   prompt:'一口圆形大铁锅，敞口，锅里装着清水，铸铁黑色质感，锅沿较宽，单独一个物体'},
+  {id:'bi',      file:'03_bi',      name:'甑箅', w:1.05, y:1.5,  ex:1.15, rx:Math.PI/2,
+   desc:'满是小孔的竹篦子：蒸汽能穿过去，粮食掉不下来。',
+   prompt:'一个圆形的竹编篦子：扁平圆盘，竹篾编成的网格有很多小孔，边缘有一圈竹框，单独一个物体'},
+  {id:'zeng',    file:'04_zeng',    name:'甑桶', w:1.3,  y:1.5,  ex:1.9, sy:1.12,
+   desc:'装酒醅的大木桶，上下开口。蒸汽从底下穿过整桶粮食。',
+   prompt:'传统中国白酒蒸馏用的木制甑桶：由竖直木板拼成、外面箍着两道铁箍的大圆木桶，上口略大下口略小像花盆，上下都开口，没有盖子，旧木头质感，单独一个物体'},
+  {id:'jiupei',  file:'08_jiupei',  name:'酒醅', w:1.12, h:0.55, y:1.62, ex:2.75,
+   desc:'在地缸里发酵好的高粱。上甑口诀：轻、松、薄、匀、埋。',
+   prompt:'一堆发酵好的高粱酒醅：红褐色湿润的碎高粱粒混着稻壳，堆成一个扁平的圆饼状，表面松散颗粒感，单独一个物体'},
+  {id:'jiupan',  file:'06_jiupan',  name:'接酒盘', w:0.62, y:2.62, ex:3.55,
+   desc:'放在天锅尖底正下方，接住滴下来的酒。',
+   prompt:'一个小小的圆形锡制接酒盘，盘边伸出一根细长的斜向下的导流管，金属质感，单独一个物体'},
+  {id:'tianguo', file:'05_tianguo', name:'天锅', w:1.5, h:0.62, y:2.7, ex:4.35,
+   desc:'盛满冷水、锅底是尖的。热酒汽碰到冰凉的锅底变回液体，一滴滴往下掉。',
+   prompt:'古法酿酒用的天锅：一口浅浅的圆形锡锅，锅底向下凸成尖锥形，锅里盛着冷水，锅沿宽，金属质感，单独一个物体'},
+  {id:'tan',     file:'07_tan',     name:'酒坛', w:0.62, y:0,   x:1.75, z:0.35, ex:0, exX:0.6,
+   desc:'接酒。最先出的酒头不要，中间是正酒，最后的酒尾留着下一甑再蒸。',
+   prompt:'一个传统陶土酒坛：小口、圆鼓肚、深褐色釉面，坛口敞开，单独一个物体'},
+];
+
+const STEPS = {
+  hero:   {focus:null,      ex:0,   cam:[4.2,3.0,5.2], tgt:[0.45,1.7,0], steam:1, flow:1},
+  zao:    {focus:['zao'],   ex:0.35,cam:[2.6,1.4,3.2], tgt:[0,0.7,0],   fire:1},
+  diguo:  {focus:['diguo'], ex:0.55,cam:[2.4,2.6,2.9], tgt:[0,1.6,0],   steam:1},
+  bi:     {focus:['bi'],    ex:0.65,cam:[2.2,3.6,2.6], tgt:[0,2.3,0],   steam:1},
+  zeng:   {focus:['zeng','jiupei'], ex:0.55, cam:[3.0,3.4,3.4], tgt:[0,2.7,0], steam:1},
+  tianguo:{focus:['tianguo'],ex:0.25,cam:[2.6,4.3,2.8], tgt:[0,3.3,0],  steam:1, drip:1},
+  jiupan: {focus:['jiupan','pipe'],ex:0.12,cam:[2.8,3.4,3.0], tgt:[0.5,2.6,0], drip:1, flow:1},
+  tan:    {focus:['tan','pipe'],ex:0,  cam:[3.6,1.6,3.2], tgt:[1.4,0.8,0.2], flow:1},
+  all:    {focus:null,      ex:1,   cam:[6.6,4.6,7.2], tgt:[0.3,3.6,0]},
+  made:   {focus:null,      ex:0,   cam:[0.0,6.2,11.5], tgt:[0,1.8,0], galaxy:1},
+};
+
+// ---------- 渲染器、场景、辉光 ----------
+const canvas=document.getElementById('stage');
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,MOBILE?1.5:2));
+renderer.outputColorSpace=THREE.SRGBColorSpace;
+renderer.toneMapping=THREE.ACESFilmicToneMapping; renderer.toneMappingExposure=1.1;
+const scene=new THREE.Scene(); scene.background=new THREE.Color('#04050a');
+scene.environment=new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(),0.04).texture; scene.environmentIntensity=0.55;
+const camera=new THREE.PerspectiveCamera(35,1,0.05,400);
+const controls=new OrbitControls(camera,canvas);
+controls.enableDamping=true; controls.enablePan=false; controls.enableZoom=false;
+controls.minPolarAngle=0.2; controls.maxPolarAngle=1.55;
+
+const composer=new EffectComposer(renderer);
+composer.addPass(new RenderPass(scene,camera));
+const bloom=new UnrealBloomPass(new THREE.Vector2(256,256),0.7,0.5,0.82); composer.addPass(bloom);
+composer.addPass(new OutputPass());
+
+scene.add(new THREE.HemisphereLight(0xbfd4ff,0x1a1420,0.9));
+const key=new THREE.DirectionalLight(0xfff1e0,2.4); key.position.set(4,8,5); scene.add(key);
+const rimL=new THREE.DirectionalLight(0x6aa8ff,1.6); rimL.position.set(-5,4,-4); scene.add(rimL);
+const fire=new THREE.PointLight(0xff7a2a,0,3.5,1.6); fire.position.set(0,0.35,0.75); scene.add(fire);
+const bangLight=new THREE.PointLight(0xfff2d6,0,30,1.2); bangLight.position.set(0,1.8,0); scene.add(bangLight);
+
+function dotTex(soft=1){
+  const c=document.createElement('canvas'); c.width=c.height=64; const g=c.getContext('2d');
+  const r=g.createRadialGradient(32,32,0,32,32,32);
+  r.addColorStop(0,'rgba(255,255,255,1)'); r.addColorStop(soft*0.25,'rgba(255,255,255,.6)'); r.addColorStop(1,'rgba(255,255,255,0)');
+  g.fillStyle=r; g.fillRect(0,0,64,64); const t=new THREE.CanvasTexture(c); t.colorSpace=THREE.SRGBColorSpace; return t;
+}
+const DOT=dotTex(1);
+
+// ---------- 星空 + 星云 ----------
+const STARS=MOBILE?1800:4000;
+{ const g=new THREE.BufferGeometry(), p=new Float32Array(STARS*3), c=new Float32Array(STARS*3);
+  for(let i=0;i<STARS;i++){ const u=Math.random()*2-1, a=Math.random()*Math.PI*2, r=40+Math.random()*80, s=Math.sqrt(1-u*u);
+    p.set([Math.cos(a)*s*r, u*r, Math.sin(a)*s*r],i*3);
+    const k=0.5+Math.random()*0.5, tint=Math.random(); c.set(tint<.15?[k,k*.8,k*.6]:tint<.35?[k*.7,k*.8,k]:[k,k,k],i*3); }
+  g.setAttribute('position',new THREE.BufferAttribute(p,3)); g.setAttribute('color',new THREE.BufferAttribute(c,3));
+  var stars=new THREE.Points(g,new THREE.PointsMaterial({size:0.35,map:DOT,vertexColors:true,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending}));
+  scene.add(stars); }
+const nebulae=[];
+[[0x5b3fd6,-30,12,-60,70],[0x1f6fff,40,-6,-70,80],[0xff6a3d,10,30,-90,60],[0x2bd4c5,-50,-20,-40,50]].forEach(([col,x,y,z,s])=>{
+  const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:dotTex(2.5),color:col,transparent:true,opacity:.06,depthWrite:false,blending:THREE.AdditiveBlending}));
+  sp.position.set(x,y,z); sp.scale.setScalar(s); scene.add(sp); nebulae.push(sp); });
+
+// ---------- 火花粒子池（爆炸、拖尾、光波都从这里出） ----------
+const MAXS=MOBILE?3000:7000;
+const sg=new THREE.BufferGeometry(), sP=new Float32Array(MAXS*3), sC=new Float32Array(MAXS*3);
+const sV=new Float32Array(MAXS*3), sL=new Float32Array(MAXS), sL0=new Float32Array(MAXS), sBase=new Float32Array(MAXS*3);
+sg.setAttribute('position',new THREE.BufferAttribute(sP,3)); sg.setAttribute('color',new THREE.BufferAttribute(sC,3));
+const sparks=new THREE.Points(sg,new THREE.PointsMaterial({size:.09,map:DOT,vertexColors:true,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending}));
+sparks.frustumCulled=false; scene.add(sparks);
+let sHead=0; const PAL=[new THREE.Color(0xfff4dc),new THREE.Color(0xffb35c),new THREE.Color(0xff6a3d),new THREE.Color(0x7ab8ff),new THREE.Color(0xb28cff)];
+function emit(x,y,z,vx,vy,vz,life,col){
+  const i=sHead; sHead=(sHead+1)%MAXS;
+  sP.set([x,y,z],i*3); sV.set([vx,vy,vz],i*3); sL[i]=sL0[i]=life; sBase.set([col.r,col.g,col.b],i*3);
+}
+function burst(pos,n,speed,life,palette=PAL){
+  for(let i=0;i<n;i++){ const u=Math.random()*2-1, a=Math.random()*Math.PI*2, s=Math.sqrt(1-u*u), v=speed*(0.25+Math.random()*0.75);
+    emit(pos.x,pos.y,pos.z, Math.cos(a)*s*v, u*v, Math.sin(a)*s*v, life*(0.5+Math.random()*0.5), palette[(Math.random()*palette.length)|0]); }
+}
+function stepSparks(dt){
+  for(let i=0;i<MAXS;i++){ if(sL[i]<=0){ sC[i*3]=sC[i*3+1]=sC[i*3+2]=0; continue; }
+    sL[i]-=dt; const f=Math.max(sL[i]/sL0[i],0), drag=Math.pow(0.35,dt);
+    sV[i*3]*=drag; sV[i*3+1]=sV[i*3+1]*drag-0.6*dt; sV[i*3+2]*=drag;
+    sP[i*3]+=sV[i*3]*dt; sP[i*3+1]+=sV[i*3+1]*dt; sP[i*3+2]+=sV[i*3+2]*dt;
+    const b=f*f*1.6; sC[i*3]=sBase[i*3]*b; sC[i*3+1]=sBase[i*3+1]*b; sC[i*3+2]=sBase[i*3+2]*b; }
+  sg.attributes.position.needsUpdate=true; sg.attributes.color.needsUpdate=true;
+}
+
+// 冲击波光环
+const rings=[];
+function ring(pos,color=0x9cc9ff,maxS=10,dur=1.3,flat=true){
+  const m=new THREE.Mesh(new THREE.RingGeometry(0.92,1,96),new THREE.MeshBasicMaterial({color,transparent:true,side:THREE.DoubleSide,depthWrite:false,blending:THREE.AdditiveBlending}));
+  m.position.copy(pos); if(flat) m.rotation.x=-Math.PI/2; else m.lookAt(camera.position);
+  m.userData={t:0,dur,maxS}; scene.add(m); rings.push(m);
+}
+function stepRings(dt){
+  for(let i=rings.length-1;i>=0;i--){ const r=rings[i], u=(r.userData.t+=dt)/r.userData.dur;
+    if(u>=1){ scene.remove(r); r.geometry.dispose(); r.material.dispose(); rings.splice(i,1); continue; }
+    const e=1-Math.pow(1-u,3); r.scale.setScalar(0.05+e*r.userData.maxS); r.material.opacity=(1-u)*(1-u)*1.4; }
+}
+
+// 奇点 + 闪光
+const core=new THREE.Sprite(new THREE.SpriteMaterial({map:DOT,color:0xfff6e8,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending}));
+core.position.set(0,1.8,0); core.scale.setScalar(0.001); scene.add(core);
+const flash=new THREE.Sprite(new THREE.SpriteMaterial({map:dotTex(3),color:0xffe9c9,transparent:true,opacity:0,depthWrite:false,blending:THREE.AdditiveBlending}));
+flash.position.copy(core.position); scene.add(flash);
+
+// ---------- 零件 ----------
+const rig=new THREE.Group(); scene.add(rig);
+const groups={}, mats={};
+const loader=new GLTFLoader(); loader.setMeshoptDecoder(MeshoptDecoder);
+const bar=document.querySelector('#loading i'); let loaded=0;
+function load(p){
+  return new Promise((res,rej)=>loader.load(`../models/${p.file}.glb`,g=>{
+    const m=g.scene; if(p.rx) m.rotation.x=p.rx; m.updateMatrixWorld(true);
+    let box=new THREE.Box3().setFromObject(m), s=box.getSize(new THREE.Vector3());
+    m.scale.multiplyScalar(p.w/Math.max(s.x,s.z)); if(p.sy) m.scale.y*=p.sy; m.updateMatrixWorld(true);
+    box=new THREE.Box3().setFromObject(m); s=box.getSize(new THREE.Vector3());
+    if(p.h && s.y>p.h){ m.scale.y*=p.h/s.y; m.updateMatrixWorld(true); box=new THREE.Box3().setFromObject(m); }
+    const c=box.getCenter(new THREE.Vector3()); m.position.x-=c.x; m.position.z-=c.z; m.position.y-=box.min.y;
+    // 把零件包在一个以自身中心为原点的组里，方便飞行时绕中心转
+    const pivot=new THREE.Group(), half=(box.max.y-box.min.y)/2; m.position.y-=half; pivot.add(m);
+    const grp=new THREE.Group(); grp.add(pivot); pivot.position.y=half;
+    grp.position.set(p.x||0,p.y,p.z||0); grp.userData={base:grp.position.clone(),pivot,half};
+    mats[p.id]=[];
+    m.traverse(o=>{ if(o.isMesh){ o.material=o.material.clone(); o.material.transparent=true; mats[p.id].push(o.material); o.userData.pid=p.id; }});
+    groups[p.id]=grp; rig.add(grp); loaded++; bar.style.width=(loaded/PARTS.length*100)+'%'; res();
+  },undefined,rej));
+}
+
+// 导流管
+const pipeCurve=new THREE.CatmullRomCurve3([new THREE.Vector3(0.28,2.66,0.02),new THREE.Vector3(0.72,2.58,0.08),
+  new THREE.Vector3(1.15,2.2,0.2),new THREE.Vector3(1.6,1.35,0.32),new THREE.Vector3(1.74,0.95,0.35)]);
+const pipeMat=new THREE.MeshStandardMaterial({color:0xb9bcc2,metalness:.85,roughness:.35,transparent:true});
+const pipe=new THREE.Mesh(new THREE.TubeGeometry(pipeCurve,64,0.022,12,false),pipeMat); pipe.userData.pid='pipe'; rig.add(pipe); mats.pipe=[pipeMat];
+
+// 蒸汽 / 酒滴 / 酒流
+const N=MOBILE?160:280, steamGeo=new THREE.BufferGeometry(), sp=new Float32Array(N*3), sl=new Float32Array(N);
+for(let i=0;i<N;i++) sl[i]=Math.random();
+steamGeo.setAttribute('position',new THREE.BufferAttribute(sp,3));
+const steamMat=new THREE.PointsMaterial({size:.17,map:DOT,transparent:true,opacity:0,depthWrite:false,color:0xcfe3ff,blending:THREE.AdditiveBlending});
+rig.add(new THREE.Points(steamGeo,steamMat));
+const drops=[], dropMat=new THREE.MeshBasicMaterial({color:0xbfe0ff,transparent:true,opacity:0});
+for(let i=0;i<6;i++){ const d=new THREE.Mesh(new THREE.SphereGeometry(.03,12,12),dropMat); d.userData.t=i/6; rig.add(d); drops.push(d); }
+const flows=[], flowMat=new THREE.MeshBasicMaterial({color:0xffe2a8,transparent:true,opacity:0});
+for(let i=0;i<14;i++){ const f=new THREE.Mesh(new THREE.SphereGeometry(.032,10,10),flowMat); f.userData.t=i/14; rig.add(f); flows.push(f); }
+
+// 星云阶段：螺旋星系
+const GN=MOBILE?2500:6000, gg=new THREE.BufferGeometry(), gp=new Float32Array(GN*3), gc=new Float32Array(GN*3);
+for(let i=0;i<GN;i++){ const arm=i%3, r=Math.pow(Math.random(),0.6)*6.5+0.3, a=arm/3*Math.PI*2+r*0.55+(Math.random()-.5)*0.5;
+  gp.set([Math.cos(a)*r+(Math.random()-.5)*.4,(Math.random()-.5)*0.35*(1.2-r/7),Math.sin(a)*r+(Math.random()-.5)*.4],i*3);
+  const t=r/7, col=new THREE.Color().setHSL(0.08+t*0.55,0.8,0.55+0.25*(1-t)); gc.set([col.r,col.g,col.b],i*3); }
+gg.setAttribute('position',new THREE.BufferAttribute(gp,3)); gg.setAttribute('color',new THREE.BufferAttribute(gc,3));
+const galaxyMat=new THREE.PointsMaterial({size:.07,map:DOT,vertexColors:true,transparent:true,opacity:0,depthWrite:false,blending:THREE.AdditiveBlending});
+const galaxy=new THREE.Points(galaxyMat?gg:gg,galaxyMat); galaxy.position.y=1.8; galaxy.rotation.x=0.35; scene.add(galaxy);
+
+// 零件名标签
+const lblBox=document.getElementById('lbls'); const lbls={};
+PARTS.forEach(p=>{ const d=document.createElement('div'); d.className='lbl'; d.textContent=p.name; lblBox.appendChild(d); lbls[p.id]=d; });
+
+// ---------- 状态 ----------
+const S={ex:0,steam:0,drip:0,flow:0,fire:0,galaxy:0};
+let step=STEPS.hero; const camGoal=new THREE.Vector3(), tgtGoal=new THREE.Vector3(); let flying=0, stepName='hero';
+const fade={};
+const camK=()=>innerWidth>760?1.5:2.1;
+function camFor(st){ const t=new THREE.Vector3(...st.tgt); return new THREE.Vector3(...st.cam).sub(t).multiplyScalar(st.galaxy?1:camK()).add(t); }
+const tmp=new THREE.Vector3(), tmp2=new THREE.Vector3();
+function setStep(name){
+  const prev=step; step=STEPS[name]; stepName=name; camGoal.copy(camFor(step)); tgtGoal.set(...step.tgt); flying=1.8;
+  document.querySelectorAll('#dots i').forEach((d,i)=>d.classList.toggle('on',order[i]===name));
+  if(intro.on||!ready) return;
+  // 换屏的「啪」：拆得更开时，被聚焦的零件甩出火花和光环
+  if((step.ex||0)>(prev.ex||0)+0.05 || step.galaxy){
+    (step.focus||['zeng','tianguo']).forEach(id=>{ const g=groups[id]; if(!g) return;
+      g.getWorldPosition(tmp); tmp.y+=g.userData.half||0.3; burst(tmp,MOBILE?140:320,3.2,1.1); ring(tmp,0x9cc9ff,3.2,1.0); });
+  }
+  if(step.galaxy){ bigBang(0.6); }
+}
+
+// ---------- 开场：大爆炸 ----------
+const intro={on:false,t:0};
+const fly={};
+function startIntro(){
+  intro.on=true; intro.t=0; document.body.classList.add('intro');
+  PARTS.forEach((p,i)=>{ const a=i/PARTS.length*Math.PI*2+Math.random()*0.4, u=(Math.random()-.3)*1.2;
+    fly[p.id]={dir:new THREE.Vector3(Math.cos(a),u,Math.sin(a)).normalize().multiplyScalar(4.5+Math.random()*2.5),
+      axis:new THREE.Vector3(Math.random()-.5,Math.random()-.5,Math.random()-.5).normalize(), spin:6+Math.random()*6, delay:0.12*i}; });
+  camera.position.set(0,2.2,13); controls.target.set(0,1.8,0);
+}
+function bigBang(scale=1){
+  burst(core.position,(MOBILE?1400:3200)*scale,11*scale,2.2);
+  ring(core.position,0xffd7a0,14*scale,1.6,true); ring(core.position,0x7ab8ff,10*scale,1.9,false);
+  flashT=0; flashS=scale;
+}
+let flashT=9, flashS=1;
+const BANG=1.1, OUT=1.9, BACK=4.2, END=5.0;
+const easeOutBack=x=>{const c1=1.4,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2);};
+function stepIntro(dt,t){
+  intro.t+=dt; const T=intro.t;
+  // 奇点蓄力
+  if(T<BANG){ const u=T/BANG; core.scale.setScalar(0.05+u*u*0.9+Math.sin(T*40)*0.03*u); core.material.opacity=1; bangLight.intensity=u*8; }
+  else if(!intro.banged){ intro.banged=true; bigBang(1); core.scale.setScalar(0.001); }
+  else { core.material.opacity=Math.max(0,1-(T-BANG)*3); }
+  for(const p of PARTS){ const g=groups[p.id], f=fly[p.id]; if(!g) continue;
+    const base=g.userData.base, ctr=tmp.copy(core.position).sub(new THREE.Vector3(0,g.userData.half,0));
+    let pos, sc, rot;
+    if(T<BANG){ pos=ctr; sc=0.001; rot=0; }
+    else if(T<OUT){ const u=(T-BANG)/(OUT-BANG), e=1-Math.pow(1-u,3); pos=tmp2.copy(ctr).addScaledVector(f.dir,e); sc=Math.min(1,u*2.2); rot=f.spin*u; }
+    else { const u=Math.min(1,Math.max(0,(T-OUT-f.delay)/(BACK-OUT-0.9))), e=easeOutBack(u);
+      const from=tmp2.copy(ctr).add(f.dir); pos=from.lerp(base,e); sc=1; rot=f.spin*(1-u)+0;
+      if(u>=1&&!f.landed){ f.landed=true; g.getWorldPosition(tmp); tmp.y+=g.userData.half; burst(tmp,60,1.6,0.6,[PAL[0],PAL[3]]); } }
+    g.position.copy(pos); g.userData.pivot.scale.setScalar(sc); g.userData.pivot.setRotationFromAxisAngle(f.axis,rot);
+    // 飞行拖尾
+    if(T>BANG && T<BACK && sc>0.2){ g.getWorldPosition(tmp); tmp.y+=g.userData.half;
+      for(let k=0;k<(MOBILE?2:5);k++) emit(tmp.x+(Math.random()-.5)*.2,tmp.y+(Math.random()-.5)*.2,tmp.z+(Math.random()-.5)*.2,(Math.random()-.5)*.3,(Math.random()-.5)*.3,(Math.random()-.5)*.3,0.7,PAL[(Math.random()*3)|0]); }
+  }
+  pipe.visible=T>BACK; pipeMat.opacity=Math.min(1,(T-BACK)*2);
+  // 镜头从远处推进
+  camera.position.lerp(tmp.copy(camFor(STEPS.hero)), 1-Math.pow(T<BANG?0.6:0.25,dt));
+  controls.target.lerp(tmp2.set(...STEPS.hero.tgt),1-Math.pow(0.3,dt));
+  if(T>END){ intro.on=false; document.body.classList.remove('intro');
+    PARTS.forEach(p=>{ const g=groups[p.id]; g.userData.pivot.rotation.set(0,0,0); g.userData.pivot.scale.setScalar(1); fly[p.id].landed=false; }); intro.banged=false; setStep(stepName); }
+}
+
+// ---------- 尺寸 ----------
+function resize(){
+  const w=innerWidth,h=innerHeight; renderer.setSize(w,h,false); composer.setSize(w,h); camera.aspect=w/h;
+  camera.setViewOffset(w,h, w>760? w*0.16:0, w>760?0:h*0.14, w,h); camera.updateProjectionMatrix();
+}
+addEventListener('resize',resize);
+
+// ---------- 主循环 ----------
+const clock=new THREE.Clock(); const lerp=(a,b,k)=>a+(b-a)*k; let ready=false;
+function tick(){
+  const dt=Math.min(clock.getDelta(),0.05), t=clock.elapsedTime, k=1-Math.pow(0.0015,dt);
+  for(const key of Object.keys(S)) S[key]=lerp(S[key],intro.on?0:(step[key]||0),k);
+
+  if(intro.on) stepIntro(dt,t);
+  else {
+    PARTS.forEach((p,i)=>{ const g=groups[p.id];
+      const asm=tmp.set(g.userData.base.x+S.ex*(p.exX||0), g.userData.base.y+S.ex*p.ex, g.userData.base.z);
+      if(S.galaxy>0.001){ // 星云阶段：零件绕中心公转
+        const a=i/PARTS.length*Math.PI*2+t*0.18, R=3.0;
+        tmp2.set(Math.cos(a)*R, 1.4+Math.sin(t*0.8+i)*0.35, Math.sin(a)*R*0.75);
+        asm.lerp(tmp2,S.galaxy); g.userData.pivot.rotation.y=S.galaxy*t*0.6;
+        g.userData.pivot.scale.setScalar(1-S.galaxy*0.35);
+      } else { g.userData.pivot.rotation.y=0; g.userData.pivot.scale.setScalar(1); }
+      g.position.copy(asm);
+      const on=!step.focus||step.focus.includes(p.id);
+      fade[p.id]=lerp(fade[p.id]??1,on?1:0.12,k);
+      for(const m of mats[p.id]){ m.opacity=fade[p.id]; m.depthWrite=fade[p.id]>0.6; }
+      // 标签
+      const L=lbls[p.id]; if(S.galaxy>0.05){ g.getWorldPosition(tmp2); tmp2.y+=g.userData.half*1.6+0.2; tmp2.project(camera);
+        L.style.transform=`translate(${(tmp2.x+1)/2*innerWidth}px,${(1-tmp2.y)/2*innerHeight}px) translate(-50%,-100%)`; L.style.opacity=S.galaxy; }
+      else L.style.opacity=0;
+    });
+    const pipeOn=(!step.focus||step.focus.includes('pipe'))?1:0.12;
+    fade.pipe=lerp(fade.pipe??1,(S.ex>0.08||step.galaxy)?0:pipeOn,k); pipeMat.opacity=fade.pipe; pipe.visible=fade.pipe>0.02;
+  }
+
+  // 蒸汽
+  const yBot=1.45+S.ex*0.55, yTop=2.75+S.ex*4.3, sOn=S.steam*(1-S.galaxy);
+  for(let i=0;i<N;i++){ sl[i]+=dt*(0.18+0.12*((i*7)%5)/5); if(sl[i]>1) sl[i]-=1;
+    const a=i*2.399+t*0.3, r=0.45*Math.sqrt((i%37)/37)*(1-sl[i]*0.35);
+    sp[i*3]=Math.cos(a)*r; sp[i*3+1]=lerp(yBot,yTop,sl[i]); sp[i*3+2]=Math.sin(a)*r; }
+  steamGeo.attributes.position.needsUpdate=true; steamMat.opacity=0.32*sOn;
+  const tipY=2.95+S.ex*4.35, panY=2.7+S.ex*3.55;
+  drops.forEach(d=>{ d.userData.t=(d.userData.t+dt*0.7)%1; const u=d.userData.t; d.position.set(0,lerp(tipY,panY,u*u),0); d.scale.setScalar(u<0.1?u*10:1); });
+  dropMat.opacity=S.drip;
+  flows.forEach(f=>{ f.userData.t=(f.userData.t+dt*0.28)%1; pipeCurve.getPointAt(f.userData.t,tmp); f.position.copy(tmp); });
+  flowMat.opacity=S.flow*(fade.pipe??1);
+  // 灶里飘火星
+  fire.intensity=S.fire*(2.6+Math.sin(t*13)*0.6+Math.sin(t*7.3)*0.4);
+  if(S.fire>0.3 && Math.random()<0.6) emit((Math.random()-.5)*.4,0.35,0.7,(Math.random()-.5)*.3,0.8+Math.random()*.8,0.3,1.2,PAL[1+((Math.random()*2)|0)]);
+
+  // 星系 / 闪光
+  galaxyMat.opacity=S.galaxy*0.9; galaxy.rotation.y+=dt*0.12;
+  flashT+=dt; const fu=flashT/0.9; flash.material.opacity=fu<1?(1-fu)*(1-fu)*flashS:0; flash.scale.setScalar(2+fu*18*flashS);
+  if(!intro.on) bangLight.intensity=fu<1?(1-fu)*30*flashS:0; else if(intro.banged) bangLight.intensity=fu<1?(1-fu)*30:0;
+  stepSparks(dt); stepRings(dt);
+  nebulae.forEach((n,i)=>n.material.opacity=0.05+0.025*Math.sin(t*0.3+i));
+  stars.rotation.y+=dt*0.004;
+
+  if(!intro.on){
+    if(flying>0){ flying-=dt; camera.position.lerp(camGoal,1-Math.pow(0.02,dt)); }
+    controls.target.lerp(tgtGoal,1-Math.pow(0.02,dt));
+  }
+  controls.update(); composer.render(); requestAnimationFrame(tick);
+}
+
+// ---------- 点零件 ----------
+let down=null;
+canvas.addEventListener('pointerdown',e=>{down=[e.clientX,e.clientY];flying=0;});
+addEventListener('pointerup',e=>{ if(!down) return; const moved=Math.hypot(e.clientX-down[0],e.clientY-down[1]); down=null;
+  if(moved>5||e.target!==canvas||intro.on) return;
+  const r=canvas.getBoundingClientRect(), ray=new THREE.Raycaster();
+  ray.setFromCamera({x:(e.clientX-r.left)/r.width*2-1,y:-(e.clientY-r.top)/r.height*2+1},camera);
+  const hit=ray.intersectObjects(rig.children,true).find(h=>h.object.userData.pid&&h.object.visible);
+  if(hit){ showTip(hit.object.userData.pid); burst(hit.point,120,1.8,0.7); ring(hit.point,0x9cc9ff,0.9,0.6,false); } else hideTip(); });
+const tip=document.getElementById('tip');
+function showTip(id){
+  if(id==='pipe'){ tip.querySelector('b').textContent='导流管'; tip.querySelector('.d').textContent='把接酒盘里的酒引出甑桶，流进坛子。'; tip.querySelector('.pr').textContent='这根管子是网页代码画的，不是生成的。'; }
+  else{ const p=PARTS.find(x=>x.id===id); tip.querySelector('b').textContent=p.name; tip.querySelector('.d').textContent=p.desc; tip.querySelector('.pr').textContent='Lux3D 提示词：'+p.prompt; }
+  tip.classList.add('show');
+}
+function hideTip(){tip.classList.remove('show');}
+tip.querySelector('.x').onclick=hideTip;
+
+// ---------- 滚动 ----------
+const secs=[...document.querySelectorAll('section')], order=secs.map(s=>s.dataset.step);
+document.getElementById('dots').innerHTML=order.map(()=>'<i></i>').join('');
+const io=new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){
+  secs.forEach(s=>s.classList.toggle('on',s===e.target)); setStep(e.target.dataset.step); hideTip(); }}); },{rootMargin:'-45% 0px -45% 0px'});
+secs.forEach(s=>io.observe(s));
+document.getElementById('prompts').innerHTML=PARTS.map(p=>`<li><b>${p.name}</b>${p.prompt}</li>`).join('');
+document.getElementById('replay').onclick=()=>{ scrollTo({top:0,behavior:'smooth'}); setTimeout(startIntro,REDUCED?0:500); };
+
+// ---------- 启动 ----------
+resize(); camera.position.copy(camFor(STEPS.hero)); controls.target.set(...STEPS.hero.tgt);
+Promise.all(PARTS.map(load)).then(()=>{
+  document.getElementById('loading').classList.add('done'); secs[0].classList.add('on');
+  camGoal.copy(camFor(STEPS.hero)); tgtGoal.set(...STEPS.hero.tgt);
+  ready=true; if(REDUCED){ document.body.classList.remove('intro'); } else startIntro();
+  tick();
+}).catch(err=>{ document.querySelector('#loading p').textContent='模型加载失败：'+err.message; });
+</script>
+</body>
+</html>

@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>拆开看看 · 一甑汾酒是怎么蒸出来的</title>
-<meta name="description" content="往下滑，把一套古法白酒蒸馏器一层层拆开。8 个零件全部由 Aholo Lux3D 从一句话生成。">
-<meta property="og:title" content="拆开看看 · 一甑汾酒是怎么蒸出来的">
-<meta property="og:description" content="往下滑，把一套古法白酒蒸馏器一层层拆开。">
+<title>拆开看看 · 把宇宙拆到奇点</title>
+<meta name="description" content="从今天的地球一路拆到138亿年前的奇点。模型由 Aholo Lux3D 从一句话生成。">
+<meta property="og:title" content="拆开看看 · 把宇宙拆到奇点">
+<meta property="og:description" content="从今天的地球一路拆到138亿年前的奇点。">
 <style>
 :root{
   --bg:#04050a;--ink:#f5f5f7;--sub:#a1a1a6;--line:rgba(255,255,255,.1);
@@ -56,7 +56,7 @@ ol.prompts b{color:#fff;font-weight:600;margin-right:6px}
 #tip .pr{margin-top:8px;font-size:12px;color:var(--sub)}
 #tip .x{position:absolute;right:10px;top:8px;border:0;background:none;font-size:18px;color:var(--sub);cursor:pointer}
 
-/* 星云阶段零件旁的名字 */
+/* 最后一屏模型旁的名字 */
 .lbl{position:fixed;left:0;top:0;z-index:3;pointer-events:none;font-size:13px;font-weight:600;color:#fff;
   padding:4px 10px;border-radius:999px;background:rgba(41,151,255,.18);border:1px solid rgba(41,151,255,.45);
   white-space:nowrap;opacity:0;text-shadow:0 0 12px rgba(41,151,255,.8)}
@@ -82,82 +82,106 @@ ol.prompts b{color:#fff;font-weight:600;margin-right:6px}
 </script>
 </head>
 <body class="intro">
-<canvas id="stage" tabindex="0" aria-label="古法蒸馏器 3D 模型，可拖动旋转、点击零件"></canvas>
-<div id="loading"><div><p>正在把蒸馏器搬进来…</p><div class="bar"><i></i></div></div></div>
+<canvas id="stage" tabindex="0" aria-label="宇宙 3D 拆解，可拖动旋转、点击模型"></canvas>
+<div id="loading"><div><p>正在把宇宙搬进来…</p><div class="bar"><i></i></div></div></div>
 <div id="dots"></div>
 <button id="replay" aria-label="重播开场">↺ 再炸一次</button>
 <div id="tip" role="dialog"><button class="x" aria-label="关闭">×</button><b></b><div class="d"></div><div class="pr"></div></div>
 <div id="lbls"></div>
+
 <main id="story">
-  <section data-step="hero"><div class="card">
-    <div class="kicker">拆开看看 · 第一件</div>
-    <h1>一甑汾酒，<br>是怎么蒸出来的</h1>
-    <p>这是一套古法白酒蒸馏器。往下滑，它会一层层拆开，从最底下那把火开始，一直讲到酒流进坛子。</p>
-    <p class="hint">可以拖动模型自己转，点任意一个零件看它是干什么的。</p>
+  <section data-step="today"><div class="card">
+    <div class="kicker">拆开看看 · 第二件</div>
+    <h1>把宇宙<br>拆开</h1>
+    <p>这是今天的地球。往下滑，我们把宇宙一层一层拆开：每拆一层，时间往回倒一段，东西变得更小，一直拆到 138 亿年前的那个奇点。</p>
+    <p class="hint">可以拖动旋转，点任意一个模型看它是什么。</p>
+    <div class="note">宇宙年龄：<a href="https://www.esa.int/Science_Exploration/Space_Science/Planck/Celebrating_the_legacy_of_ESA_s_Planck_mission" target="_blank" rel="noopener">ESA 普朗克卫星</a></div>
   </div></section>
 
-  <section data-step="zao"><div class="card">
-    <div class="kicker">01 · 灶</div>
-    <h2>一切从一把火开始</h2>
-    <p>灶里烧火，把锅里的水烧成蒸汽。整套设备没有电机、没有泵，唯一的动力就是这口灶。</p>
-    <p>火候是门手艺。汾酒讲究「缓汽蒸馏、大汽追尾」：开始和出酒的时候火要小，快结束时才把火开大，把最后一点酒逼出来。</p>
-    <div class="note">工艺口诀出处：<a href="http://www.fenyang.gov.cn/chnl1005/chnl4548/201902/t20190222_1207977.shtml" target="_blank" rel="noopener">汾阳市人民政府 · 汾酒酿制技艺介绍</a></div>
+  <section data-step="solar"><div class="card">
+    <div class="kicker">第 1 层 · 46 亿年前</div>
+    <h2>地球和太阳，是一起长出来的</h2>
+    <p>太阳和地球来自同一团旋转的气体尘埃。这团云里已经有碳、氧、铁，它们是更早的恒星炸开时留下的。</p>
+    <p>你身上的很多原子，都在别的星星肚子里炼过一遍。</p>
+    <div class="note">出处：<a href="https://science.nasa.gov/solar-system/solar-system-facts/" target="_blank" rel="noopener">NASA · Solar System Facts</a></div>
   </div></section>
 
-  <section data-step="diguo"><div class="card">
-    <div class="kicker">02 · 底锅</div>
-    <h2>锅里只有清水</h2>
-    <p>最容易误会的一点：粮食不在这口锅里。底锅只装水，水烧开变成蒸汽，往上走。</p>
+  <section data-step="galaxy"><div class="card">
+    <div class="kicker">第 2 层 · 大爆炸后约 3 亿年起</div>
+    <h2>太阳只是几千亿分之一</h2>
+    <p>再拆开一层，太阳只是银河系里的一颗普通恒星。银河系中心是一个约 400 万倍太阳质量的黑洞，人马座 A*，2022 年人类第一次拍到它。</p>
+    <p>韦布望远镜看到，大爆炸后大约 3 亿年，就已经有星系了。</p>
+    <div class="note">出处：<a href="https://eventhorizontelescope.org/blog/astronomers-reveal-first-image-black-hole-heart-our-galaxy" target="_blank" rel="noopener">事件视界望远镜（EHT）</a>、<a href="https://science.nasa.gov/missions/webb/back-to-the-beginning-probing-the-first-galaxies-with-webb/" target="_blank" rel="noopener">NASA 韦布望远镜</a>。黑洞是 Lux3D 生成的摆件，外圈的光和星系是代码画的。</div>
   </div></section>
 
-  <section data-step="bi"><div class="card">
-    <div class="kicker">03 · 甑箅</div>
-    <h2>一张会透气的竹篦子</h2>
-    <p>满是小孔的篦子横在锅和甑桶之间：蒸汽能穿上去，上面的粮食掉不下来。</p>
+  <section data-step="firststar"><div class="card">
+    <div class="kicker">第 3 层 · 第一代恒星</div>
+    <h2>最早的星星，只有氢和氦</h2>
+    <p>第一代恒星又大又亮，寿命很短。它们一颗颗炸开，把体内炼出来的更重的元素撒向太空，后来的太阳和地球用的就是这些料。</p>
+    <div class="note">按理论推算出现在大爆炸后约 1–2 亿年，韦布望远镜还在找它们，尚未确认直接看到。出处：<a href="https://sci.esa.int/web/jwst/-/32529-esa-on-the-trail-of-the-earliest-stars" target="_blank" rel="noopener">ESA</a></div>
   </div></section>
 
-  <section data-step="zeng"><div class="card">
-    <div class="kicker">04 · 甑桶和酒醅</div>
-    <h2>酒，藏在这一桶粮食里</h2>
-    <p>甑桶里装的是发酵好的高粱，叫酒醅。汾酒的酒醅是在埋进地里的陶缸里发酵的。</p>
-    <p>装桶叫「上甑」，汾酒的口诀是五个字：<b>轻、松、薄、匀、埋</b>。哪里冒汽，就往哪里撒一层薄醅盖住。不压实，蒸汽才能均匀穿过每一层，把酒和香味一起带上来。</p>
-    <div class="note">口诀出处：汾阳市人民政府、<a href="http://www.news.cn/info/20220817/4dd55bfc557940bab2304478e5eb406b/c.html" target="_blank" rel="noopener">新华网</a></div>
+  <section data-step="atom"><div class="card">
+    <div class="kicker">第 4 层 · 大爆炸后 38 万年</div>
+    <h2>第一批原子，宇宙变透明</h2>
+    <p>再往前，宇宙是一锅发光的雾：太热了，电子待不住，光也走不远。</p>
+    <p>到 38 万年左右，宇宙凉下来，电子被原子核抓住，第一批原子诞生，宇宙一下子变透明。那一刻放出的光到今天还在，就是你身后那层「宇宙微波背景辐射」。</p>
+    <div class="note">出处：<a href="https://www.esa.int/Science_Exploration/Space_Science/Planck/Why_the_microwave" target="_blank" rel="noopener">ESA 普朗克卫星</a></div>
   </div></section>
 
-  <section data-step="tianguo"><div class="card">
-    <div class="kicker">05 · 天锅</div>
-    <h2>一口装着冷水的锅</h2>
-    <p>甑桶顶上扣着一口锅，锅里盛满冷水，锅底是尖的。</p>
-    <p>带着酒的热蒸汽往上冲，一碰到冰凉的锅底就变回液体，顺着尖底一滴一滴往下掉。这一步，就是「蒸馏」里的「馏」。</p>
-    <div class="note">天锅是古法做法的示意。现在的酒厂多用不锈钢甑桶，再接一套冷凝器。</div>
+  <section data-step="nucleus"><div class="card">
+    <div class="kicker">第 5 层 · 大爆炸后几分钟</div>
+    <h2>把原子拆开：原子核</h2>
+    <p>大爆炸后几分钟内，质子和中子撞在一起，结成氦这样最轻的原子核。红色是质子，灰色是中子。</p>
+    <p>这几分钟定下了宇宙的配方：按质量算，普通物质大约四分之三是氢，四分之一是氦。</p>
+    <div class="note">出处：<a href="https://imagine.gsfc.nasa.gov/educators/elements/imagine/Cosmic.pdf" target="_blank" rel="noopener">NASA Imagine the Universe</a></div>
   </div></section>
 
-  <section data-step="jiupan"><div class="card">
-    <div class="kicker">06 · 接酒盘和导流管</div>
-    <h2>接住每一滴</h2>
-    <p>尖底正下方放着一只小盘，酒滴进盘里，再顺着导流管流出甑桶，往外面的坛子里走。</p>
+  <section data-step="proton"><div class="card">
+    <div class="kicker">第 6 层 · 大爆炸后约百万分之一秒</div>
+    <h2>把质子拆开：三颗夸克</h2>
+    <p>质子里面是三颗夸克，被胶子死死绑在一起，没人单独抓到过一颗夸克。</p>
+    <p>大爆炸后百万分之几秒，宇宙凉到夸克第一次被关进质子和中子里。</p>
+    <div class="note">出处：<a href="https://home.cern/science/physics/heavy-ions-and-quark-gluon-plasma/" target="_blank" rel="noopener">欧洲核子研究中心 CERN</a>。三颗夸克的颜色是物理学家起的名字，不是真的颜色。</div>
   </div></section>
 
-  <section data-step="tan"><div class="card">
-    <div class="kicker">07 · 酒坛</div>
-    <h2>掐头，去尾</h2>
-    <p>不是流出来的都要。最先出来的一公斤左右叫「酒头」，度数在 75% 以上，倒回去重新发酵。</p>
-    <p>中间的是正酒。等流出来的酒降到 30% 左右，就开始「去尾」，酒尾另外存起来，下一甑再蒸。</p>
-    <div class="note">数字出处：汾阳市人民政府 · 汾酒酿制技艺介绍</div>
+  <section data-step="soup"><div class="card">
+    <div class="kicker">第 7 层 · 更早</div>
+    <h2>一锅夸克汤</h2>
+    <p>在那之前，夸克和胶子还没被关起来，满宇宙自由乱窜，是一锅极热的「汤」，物理学家叫它夸克-胶子等离子体。</p>
+    <p>欧洲核子研究中心的对撞机把原子核撞碎，在实验室里重造过这锅汤。</p>
+    <div class="note">出处：<a href="https://home.cern/science/physics/heavy-ions-and-quark-gluon-plasma/" target="_blank" rel="noopener">CERN</a></div>
   </div></section>
 
-  <section data-step="all"><div class="card">
-    <div class="kicker">08 · 全部拆开</div>
-    <h2>同一批粮食，蒸两回</h2>
-    <p>汾酒的工艺叫「清蒸二次清」：高粱先单独蒸熟，同一批酒醅发酵、蒸馏两次。头一回出的酒叫「大楂」，第二回不加新粮、只加曲，出的叫「二楂」。</p>
-    <p class="hint">现在整套都拆开了，拖着转一圈看看。</p>
+  <section data-step="inflation"><div class="card">
+    <div class="kicker">第 8 层 · 比一眨眼短得多</div>
+    <h2>暴胀</h2>
+    <p>再往前，很多物理学家认为宇宙经历过一次「暴胀」：在远短于一眨眼的时间里，空间被急剧拉大。今天星系的分布，可能就是那时候微小的起伏被拉大留下的痕迹。</p>
+    <div class="note">暴胀是理论，有观测支持，但还没被最终证实。出处：<a href="https://sci.esa.int/web/planck/-/55392-the-history-of-the-universe" target="_blank" rel="noopener">ESA 普朗克</a></div>
+  </div></section>
+
+  <section data-step="singular"><div class="card">
+    <div class="kicker">最后一层 · 奇点</div>
+    <h2>拆到这里，拆不动了</h2>
+    <p>把爱因斯坦的广义相对论一路往回推，会得到一个密度无限大的点，叫奇点。</p>
+    <p>但大多数物理学家认为，这只说明我们的理论在这里失效了，需要一套还没被找到的「量子引力」来接手。那一刻到底是什么，还没有人知道。</p>
+    <p><b>这是人类还没拆开的最后一层。</b></p>
+    <div class="note">出处：<a href="https://imagine.gsfc.nasa.gov/ask_astro/cosmology.html" target="_blank" rel="noopener">NASA Ask an Astrophysicist</a></div>
+  </div></section>
+
+  <section data-step="rebuild"><div class="card">
+    <div class="kicker">倒放</div>
+    <h2>现在，让它一口气长回来</h2>
+    <p>从奇点炸开，到夸克、质子、原子核、原子、恒星、星系，再到地球，138 亿年压进几秒钟。</p>
+    <p class="hint">右上角可以再炸一次。</p>
   </div></section>
 
   <section data-step="made"><div class="card">
-    <div class="kicker">这套模型是怎么来的</div>
-    <h2>8 个零件，没有一个是手工建模</h2>
-    <p>每个零件都是用 <b>Aholo Lux3D</b> 从一句中文描述生成的，带材质，大约两分钟一个。没有照片，也没有建模软件。拼装、拆解、蒸汽和酒滴的动画，都是网页里的代码实时算的。</p>
-    <p>换一件东西，比如一把老锁、一盏走马灯，同样的流程就能再出一堂课。</p>
+    <div class="kicker">这些模型是怎么来的</div>
+    <h2>一句话一个模型</h2>
+    <p>地球、太阳、黑洞、恒星、氢原子、氦原子核、质子外壳，都是用 <b>Aholo Lux3D</b> 从一句中文描述生成的，带材质，大约两分钟一个，没有手工建模。</p>
+    <p>夸克汤、暴胀、星系、宇宙微波背景这些本来就是一团能量的东西，是网页代码实时画的粒子。</p>
+    <p>同样的流程我们还拆过一件小东西：<a href="fenjiu/" style="color:#2997ff">一甑汾酒是怎么蒸出来的 →</a></p>
     <ol class="prompts" id="prompts"></ol>
   </div></section>
 </main>
@@ -173,357 +197,265 @@ import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 
-const MOBILE = innerWidth<=760;
-const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const MOBILE=innerWidth<=760, REDUCED=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// ---------- 零件：w=目标宽度，h=限制高度，y=底部高度，ex=拆开时上移量 ----------
-const PARTS = [
-  {id:'zao',     file:'01_zao',     name:'灶', w:1.6,  y:0,    ex:0,
-   desc:'砖砌的灶，正面是烧柴火的口。烧水出蒸汽，是整套设备唯一的动力。',
-   prompt:'中国传统农村酿酒作坊的砖砌灶台：方形青砖灶，正面有一个拱形的烧柴火口，里面有木柴和火，灶顶是一个圆形开口用来放大铁锅，单独一个物体'},
-  {id:'diguo',   file:'02_diguo',   name:'底锅', w:1.12, y:1.2,  ex:0.55,
-   desc:'只装清水，不装粮食。水烧开变成蒸汽往上走。',
-   prompt:'一口圆形大铁锅，敞口，锅里装着清水，铸铁黑色质感，锅沿较宽，单独一个物体'},
-  {id:'bi',      file:'03_bi',      name:'甑箅', w:1.05, y:1.5,  ex:1.15, rx:Math.PI/2,
-   desc:'满是小孔的竹篦子：蒸汽能穿过去，粮食掉不下来。',
-   prompt:'一个圆形的竹编篦子：扁平圆盘，竹篾编成的网格有很多小孔，边缘有一圈竹框，单独一个物体'},
-  {id:'zeng',    file:'04_zeng',    name:'甑桶', w:1.3,  y:1.5,  ex:1.9, sy:1.12,
-   desc:'装酒醅的大木桶，上下开口。蒸汽从底下穿过整桶粮食。',
-   prompt:'传统中国白酒蒸馏用的木制甑桶：由竖直木板拼成、外面箍着两道铁箍的大圆木桶，上口略大下口略小像花盆，上下都开口，没有盖子，旧木头质感，单独一个物体'},
-  {id:'jiupei',  file:'08_jiupei',  name:'酒醅', w:1.12, h:0.55, y:1.62, ex:2.75,
-   desc:'在地缸里发酵好的高粱。上甑口诀：轻、松、薄、匀、埋。',
-   prompt:'一堆发酵好的高粱酒醅：红褐色湿润的碎高粱粒混着稻壳，堆成一个扁平的圆饼状，表面松散颗粒感，单独一个物体'},
-  {id:'jiupan',  file:'06_jiupan',  name:'接酒盘', w:0.62, y:2.62, ex:3.55,
-   desc:'放在天锅尖底正下方，接住滴下来的酒。',
-   prompt:'一个小小的圆形锡制接酒盘，盘边伸出一根细长的斜向下的导流管，金属质感，单独一个物体'},
-  {id:'tianguo', file:'05_tianguo', name:'天锅', w:1.5, h:0.62, y:2.7, ex:4.35,
-   desc:'盛满冷水、锅底是尖的。热酒汽碰到冰凉的锅底变回液体，一滴滴往下掉。',
-   prompt:'古法酿酒用的天锅：一口浅浅的圆形锡锅，锅底向下凸成尖锥形，锅里盛着冷水，锅沿宽，金属质感，单独一个物体'},
-  {id:'tan',     file:'07_tan',     name:'酒坛', w:0.62, y:0,   x:1.75, z:0.35, ex:0, exX:0.6,
-   desc:'接酒。最先出的酒头不要，中间是正酒，最后的酒尾留着下一甑再蒸。',
-   prompt:'一个传统陶土酒坛：小口、圆鼓肚、深褐色釉面，坛口敞开，单独一个物体'},
+// ---------- Lux3D 生成的模型 ----------
+const OBJS=[
+  {id:'earth', file:'c1_earth', name:'地球', size:1.7, prompt:'科技馆里的地球模型：一个写实的地球球体，蓝色海洋、绿色和棕色大陆、白色云层，单独一个物体'},
+  {id:'sun',   file:'c2_sun',   name:'太阳', size:2.6, glow:2.2, prompt:'一个写实的太阳球体模型：表面是翻滚的橙黄色等离子体和黑子，发着光，单独一个物体'},
+  {id:'bh',    file:'c3_bh',    name:'黑洞', size:2.6, prompt:'一个天文科普摆件：中心是一个黑色的球体，外面围着一圈又宽又扁、发着橙色和白色光的圆环盘，像土星环一样，单独一个物体'},
+  {id:'star',  file:'c4_star',  name:'第一代恒星', size:2.4, glow:3, tint:0x9cc4ff, prompt:'一颗巨大的蓝白色恒星球体模型：表面有明亮的等离子体纹理和耀斑，单独一个物体'},
+  {id:'atom',  file:'c5_atom',  name:'氢原子', size:2.0, prompt:'科技馆里的氢原子模型：中心一个红色小球是原子核，外面一个电子小球和一条细细的椭圆轨道环，单独一个物体'},
+  {id:'he',    file:'c6_he',    name:'氦原子核', size:1.5, prompt:'科技馆里的氦原子核模型：两个红色小球和两个灰色小球紧紧挤在一起成一团，光滑塑料质感，单独一个物体'},
+  {id:'proton',file:'c7_proton',name:'质子', size:2.0, glass:1, prompt:'科技馆里的质子模型：一个半透明的玻璃球，里面有红、绿、蓝三颗发光的小球，单独一个物体'},
 ];
 
-const STEPS = {
-  hero:   {focus:null,      ex:0,   cam:[4.2,3.0,5.2], tgt:[0.45,1.7,0], steam:1, flow:1},
-  zao:    {focus:['zao'],   ex:0.35,cam:[2.6,1.4,3.2], tgt:[0,0.7,0],   fire:1},
-  diguo:  {focus:['diguo'], ex:0.55,cam:[2.4,2.6,2.9], tgt:[0,1.6,0],   steam:1},
-  bi:     {focus:['bi'],    ex:0.65,cam:[2.2,3.6,2.6], tgt:[0,2.3,0],   steam:1},
-  zeng:   {focus:['zeng','jiupei'], ex:0.55, cam:[3.0,3.4,3.4], tgt:[0,2.7,0], steam:1},
-  tianguo:{focus:['tianguo'],ex:0.25,cam:[2.6,4.3,2.8], tgt:[0,3.3,0],  steam:1, drip:1},
-  jiupan: {focus:['jiupan','pipe'],ex:0.12,cam:[2.8,3.4,3.0], tgt:[0.5,2.6,0], drip:1, flow:1},
-  tan:    {focus:['tan','pipe'],ex:0,  cam:[3.6,1.6,3.2], tgt:[1.4,0.8,0.2], flow:1},
-  all:    {focus:null,      ex:1,   cam:[6.6,4.6,7.2], tgt:[0.3,3.6,0]},
-  made:   {focus:null,      ex:0,   cam:[0.0,6.2,11.5], tgt:[0,1.8,0], galaxy:1},
+// 每一屏：显示哪些东西、放在哪、镜头多远；fx = 代码画的效果
+const STEPS={
+  today:   {show:{earth:[0,0,0,1], sun:[-9,2.5,-14,2.2]}, d:6.5, el:0.25},
+  solar:   {show:{sun:[0,0,0,1], earth:'orbit'}, fx:['disk'], d:9, el:0.55},
+  galaxy:  {show:{bh:[0,0,0,1]}, fx:['galaxy','bh'], d:13, el:0.75},
+  firststar:{show:{star:[0,0,0,1]}, fx:['nova'], d:8, el:0.2},
+  atom:    {show:{atom:[0,0,0,1]}, fx:['cmb'], d:6, el:0.25},
+  nucleus: {show:{he:[0,0,0,1]}, fx:['nucleons'], d:5, el:0.25},
+  proton:  {show:{proton:[0,0,0,1]}, fx:['quarks'], d:5.2, el:0.2},
+  soup:    {show:{}, fx:['soup'], d:7, el:0.3},
+  inflation:{show:{}, fx:['inflation'], d:9, el:0.3},
+  singular:{show:{}, fx:['core'], d:7, el:0.2},
+  rebuild: {show:{earth:[0,0,0,1], sun:[-9,2.5,-14,2.2]}, d:6.5, el:0.25, montage:1},
+  made:    {show:'orbit', fx:['galaxy'], d:12, el:0.5},
 };
+// 倒放时依次经过的画面
+const MONTAGE=[['singular',0],['soup',0.9],['proton',1.7],['nucleus',2.5],['atom',3.3],['firststar',4.1],['galaxy',4.9],['solar',5.8],['today',6.8]];
 
-// ---------- 渲染器、场景、辉光 ----------
+// ---------- 渲染 ----------
 const canvas=document.getElementById('stage');
 const renderer=new THREE.WebGLRenderer({canvas,antialias:true});
 renderer.setPixelRatio(Math.min(devicePixelRatio,MOBILE?1.5:2));
-renderer.outputColorSpace=THREE.SRGBColorSpace;
-renderer.toneMapping=THREE.ACESFilmicToneMapping; renderer.toneMappingExposure=1.1;
-const scene=new THREE.Scene(); scene.background=new THREE.Color('#04050a');
-scene.environment=new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(),0.04).texture; scene.environmentIntensity=0.55;
-const camera=new THREE.PerspectiveCamera(35,1,0.05,400);
-const controls=new OrbitControls(camera,canvas);
-controls.enableDamping=true; controls.enablePan=false; controls.enableZoom=false;
-controls.minPolarAngle=0.2; controls.maxPolarAngle=1.55;
+renderer.outputColorSpace=THREE.SRGBColorSpace; renderer.toneMapping=THREE.ACESFilmicToneMapping; renderer.toneMappingExposure=1.1;
+const scene=new THREE.Scene(); scene.background=new THREE.Color('#03040a');
+scene.environment=new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(),0.04).texture; scene.environmentIntensity=0.5;
+const camera=new THREE.PerspectiveCamera(38,1,0.05,600);
+const controls=new OrbitControls(camera,canvas); controls.enableDamping=true; controls.enablePan=false; controls.enableZoom=false;
+const composer=new EffectComposer(renderer); composer.addPass(new RenderPass(scene,camera));
+const bloom=new UnrealBloomPass(new THREE.Vector2(256,256),0.85,0.55,0.8); composer.addPass(bloom); composer.addPass(new OutputPass());
+scene.add(new THREE.HemisphereLight(0xbfd4ff,0x141020,0.7));
+const sunLight=new THREE.PointLight(0xfff0d8,60,0,1.4); sunLight.position.set(-9,2.5,-14); scene.add(sunLight);
+const key=new THREE.DirectionalLight(0xffffff,1.6); key.position.set(4,5,6); scene.add(key);
+const bangLight=new THREE.PointLight(0xfff2d6,0,40,1.2); scene.add(bangLight);
 
-const composer=new EffectComposer(renderer);
-composer.addPass(new RenderPass(scene,camera));
-const bloom=new UnrealBloomPass(new THREE.Vector2(256,256),0.7,0.5,0.82); composer.addPass(bloom);
-composer.addPass(new OutputPass());
-
-scene.add(new THREE.HemisphereLight(0xbfd4ff,0x1a1420,0.9));
-const key=new THREE.DirectionalLight(0xfff1e0,2.4); key.position.set(4,8,5); scene.add(key);
-const rimL=new THREE.DirectionalLight(0x6aa8ff,1.6); rimL.position.set(-5,4,-4); scene.add(rimL);
-const fire=new THREE.PointLight(0xff7a2a,0,3.5,1.6); fire.position.set(0,0.35,0.75); scene.add(fire);
-const bangLight=new THREE.PointLight(0xfff2d6,0,30,1.2); bangLight.position.set(0,1.8,0); scene.add(bangLight);
-
-function dotTex(soft=1){
-  const c=document.createElement('canvas'); c.width=c.height=64; const g=c.getContext('2d');
-  const r=g.createRadialGradient(32,32,0,32,32,32);
-  r.addColorStop(0,'rgba(255,255,255,1)'); r.addColorStop(soft*0.25,'rgba(255,255,255,.6)'); r.addColorStop(1,'rgba(255,255,255,0)');
-  g.fillStyle=r; g.fillRect(0,0,64,64); const t=new THREE.CanvasTexture(c); t.colorSpace=THREE.SRGBColorSpace; return t;
-}
+function dotTex(soft=1){ const c=document.createElement('canvas'); c.width=c.height=64; const g=c.getContext('2d');
+  const r=g.createRadialGradient(32,32,0,32,32,32); r.addColorStop(0,'rgba(255,255,255,1)'); r.addColorStop(Math.min(.9,soft*.25),'rgba(255,255,255,.55)'); r.addColorStop(1,'rgba(255,255,255,0)');
+  g.fillStyle=r; g.fillRect(0,0,64,64); const t=new THREE.CanvasTexture(c); t.colorSpace=THREE.SRGBColorSpace; return t; }
 const DOT=dotTex(1);
+const add=(o)=>{scene.add(o);return o;};
+const addMat=(o)=>({map:DOT,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,...o});
 
-// ---------- 星空 + 星云 ----------
-const STARS=MOBILE?1800:4000;
-{ const g=new THREE.BufferGeometry(), p=new Float32Array(STARS*3), c=new Float32Array(STARS*3);
-  for(let i=0;i<STARS;i++){ const u=Math.random()*2-1, a=Math.random()*Math.PI*2, r=40+Math.random()*80, s=Math.sqrt(1-u*u);
-    p.set([Math.cos(a)*s*r, u*r, Math.sin(a)*s*r],i*3);
-    const k=0.5+Math.random()*0.5, tint=Math.random(); c.set(tint<.15?[k,k*.8,k*.6]:tint<.35?[k*.7,k*.8,k]:[k,k,k],i*3); }
+// 星空
+const STARS=MOBILE?1800:4500;
+const stars=(()=>{ const g=new THREE.BufferGeometry(), p=new Float32Array(STARS*3), c=new Float32Array(STARS*3);
+  for(let i=0;i<STARS;i++){ const u=Math.random()*2-1,a=Math.random()*Math.PI*2,r=60+Math.random()*120,s=Math.sqrt(1-u*u);
+    p.set([Math.cos(a)*s*r,u*r,Math.sin(a)*s*r],i*3); const k=.45+Math.random()*.55,t=Math.random(); c.set(t<.15?[k,k*.8,k*.6]:t<.35?[k*.7,k*.8,k]:[k,k,k],i*3); }
   g.setAttribute('position',new THREE.BufferAttribute(p,3)); g.setAttribute('color',new THREE.BufferAttribute(c,3));
-  var stars=new THREE.Points(g,new THREE.PointsMaterial({size:0.35,map:DOT,vertexColors:true,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending}));
-  scene.add(stars); }
-const nebulae=[];
-[[0x5b3fd6,-30,12,-60,70],[0x1f6fff,40,-6,-70,80],[0xff6a3d,10,30,-90,60],[0x2bd4c5,-50,-20,-40,50]].forEach(([col,x,y,z,s])=>{
-  const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:dotTex(2.5),color:col,transparent:true,opacity:.06,depthWrite:false,blending:THREE.AdditiveBlending}));
-  sp.position.set(x,y,z); sp.scale.setScalar(s); scene.add(sp); nebulae.push(sp); });
+  return add(new THREE.Points(g,new THREE.PointsMaterial(addMat({size:.5,vertexColors:true})))); })();
+const nebulae=[[0x5b3fd6,-40,15,-90,90],[0x1f6fff,50,-8,-100,100],[0xff6a3d,10,40,-120,80]].map(([col,x,y,z,s])=>{
+  const sp=add(new THREE.Sprite(new THREE.SpriteMaterial(addMat({map:dotTex(2.5),color:col,opacity:.05})))); sp.position.set(x,y,z); sp.scale.setScalar(s); return sp; });
 
-// ---------- 火花粒子池（爆炸、拖尾、光波都从这里出） ----------
-const MAXS=MOBILE?3000:7000;
-const sg=new THREE.BufferGeometry(), sP=new Float32Array(MAXS*3), sC=new Float32Array(MAXS*3);
-const sV=new Float32Array(MAXS*3), sL=new Float32Array(MAXS), sL0=new Float32Array(MAXS), sBase=new Float32Array(MAXS*3);
+// 火花池
+const MAXS=MOBILE?3000:8000; const sg=new THREE.BufferGeometry(), sP=new Float32Array(MAXS*3), sC=new Float32Array(MAXS*3), sV=new Float32Array(MAXS*3), sL=new Float32Array(MAXS), sL0=new Float32Array(MAXS), sB=new Float32Array(MAXS*3);
 sg.setAttribute('position',new THREE.BufferAttribute(sP,3)); sg.setAttribute('color',new THREE.BufferAttribute(sC,3));
-const sparks=new THREE.Points(sg,new THREE.PointsMaterial({size:.09,map:DOT,vertexColors:true,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending}));
-sparks.frustumCulled=false; scene.add(sparks);
-let sHead=0; const PAL=[new THREE.Color(0xfff4dc),new THREE.Color(0xffb35c),new THREE.Color(0xff6a3d),new THREE.Color(0x7ab8ff),new THREE.Color(0xb28cff)];
-function emit(x,y,z,vx,vy,vz,life,col){
-  const i=sHead; sHead=(sHead+1)%MAXS;
-  sP.set([x,y,z],i*3); sV.set([vx,vy,vz],i*3); sL[i]=sL0[i]=life; sBase.set([col.r,col.g,col.b],i*3);
-}
-function burst(pos,n,speed,life,palette=PAL){
-  for(let i=0;i<n;i++){ const u=Math.random()*2-1, a=Math.random()*Math.PI*2, s=Math.sqrt(1-u*u), v=speed*(0.25+Math.random()*0.75);
-    emit(pos.x,pos.y,pos.z, Math.cos(a)*s*v, u*v, Math.sin(a)*s*v, life*(0.5+Math.random()*0.5), palette[(Math.random()*palette.length)|0]); }
-}
-function stepSparks(dt){
-  for(let i=0;i<MAXS;i++){ if(sL[i]<=0){ sC[i*3]=sC[i*3+1]=sC[i*3+2]=0; continue; }
-    sL[i]-=dt; const f=Math.max(sL[i]/sL0[i],0), drag=Math.pow(0.35,dt);
-    sV[i*3]*=drag; sV[i*3+1]=sV[i*3+1]*drag-0.6*dt; sV[i*3+2]*=drag;
-    sP[i*3]+=sV[i*3]*dt; sP[i*3+1]+=sV[i*3+1]*dt; sP[i*3+2]+=sV[i*3+2]*dt;
-    const b=f*f*1.6; sC[i*3]=sBase[i*3]*b; sC[i*3+1]=sBase[i*3+1]*b; sC[i*3+2]=sBase[i*3+2]*b; }
-  sg.attributes.position.needsUpdate=true; sg.attributes.color.needsUpdate=true;
-}
-
-// 冲击波光环
+const sparks=add(new THREE.Points(sg,new THREE.PointsMaterial(addMat({size:.1,vertexColors:true})))); sparks.frustumCulled=false;
+let sHead=0; const PAL=[0xfff4dc,0xffb35c,0xff6a3d,0x7ab8ff,0xb28cff].map(c=>new THREE.Color(c));
+function emit(x,y,z,vx,vy,vz,life,col){ const i=sHead; sHead=(sHead+1)%MAXS; sP.set([x,y,z],i*3); sV.set([vx,vy,vz],i*3); sL[i]=sL0[i]=life; sB.set([col.r,col.g,col.b],i*3); }
+function burst(pos,n,speed,life,pal=PAL){ for(let i=0;i<n;i++){ const u=Math.random()*2-1,a=Math.random()*Math.PI*2,s=Math.sqrt(1-u*u),v=speed*(.25+Math.random()*.75);
+  emit(pos.x,pos.y,pos.z,Math.cos(a)*s*v,u*v,Math.sin(a)*s*v,life*(.5+Math.random()*.5),pal[(Math.random()*pal.length)|0]); } }
+function stepSparks(dt){ for(let i=0;i<MAXS;i++){ if(sL[i]<=0){sC[i*3]=sC[i*3+1]=sC[i*3+2]=0;continue;}
+  sL[i]-=dt; const f=Math.max(sL[i]/sL0[i],0), d=Math.pow(.35,dt); sV[i*3]*=d; sV[i*3+1]*=d; sV[i*3+2]*=d;
+  sP[i*3]+=sV[i*3]*dt; sP[i*3+1]+=sV[i*3+1]*dt; sP[i*3+2]+=sV[i*3+2]*dt; const b=f*f*1.6; sC[i*3]=sB[i*3]*b; sC[i*3+1]=sB[i*3+1]*b; sC[i*3+2]=sB[i*3+2]*b; }
+  sg.attributes.position.needsUpdate=true; sg.attributes.color.needsUpdate=true; }
 const rings=[];
-function ring(pos,color=0x9cc9ff,maxS=10,dur=1.3,flat=true){
-  const m=new THREE.Mesh(new THREE.RingGeometry(0.92,1,96),new THREE.MeshBasicMaterial({color,transparent:true,side:THREE.DoubleSide,depthWrite:false,blending:THREE.AdditiveBlending}));
-  m.position.copy(pos); if(flat) m.rotation.x=-Math.PI/2; else m.lookAt(camera.position);
-  m.userData={t:0,dur,maxS}; scene.add(m); rings.push(m);
-}
-function stepRings(dt){
-  for(let i=rings.length-1;i>=0;i--){ const r=rings[i], u=(r.userData.t+=dt)/r.userData.dur;
-    if(u>=1){ scene.remove(r); r.geometry.dispose(); r.material.dispose(); rings.splice(i,1); continue; }
-    const e=1-Math.pow(1-u,3); r.scale.setScalar(0.05+e*r.userData.maxS); r.material.opacity=(1-u)*(1-u)*1.4; }
-}
+function ring(pos,color=0x9cc9ff,maxS=8,dur=1.3){ const m=add(new THREE.Mesh(new THREE.RingGeometry(.92,1,96),new THREE.MeshBasicMaterial({color,transparent:true,side:THREE.DoubleSide,depthWrite:false,blending:THREE.AdditiveBlending})));
+  m.position.copy(pos); m.lookAt(camera.position); m.userData={t:0,dur,maxS}; rings.push(m); }
+function stepRings(dt){ for(let i=rings.length-1;i>=0;i--){ const r=rings[i],u=(r.userData.t+=dt)/r.userData.dur;
+  if(u>=1){scene.remove(r);r.geometry.dispose();r.material.dispose();rings.splice(i,1);continue;}
+  r.scale.setScalar(.05+(1-Math.pow(1-u,3))*r.userData.maxS); r.material.opacity=(1-u)*(1-u)*1.4; } }
+const flash=add(new THREE.Sprite(new THREE.SpriteMaterial(addMat({map:dotTex(3),color:0xffe9c9,opacity:0}))));
+let flashT=9;
+function bigBang(s=1){ const o=new THREE.Vector3(); burst(o,(MOBILE?1500:3600)*s,13*s,2.4); ring(o,0xffd7a0,16*s,1.6); ring(o,0x7ab8ff,11*s,2.0); flashT=0; }
 
-// 奇点 + 闪光
-const core=new THREE.Sprite(new THREE.SpriteMaterial({map:DOT,color:0xfff6e8,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending}));
-core.position.set(0,1.8,0); core.scale.setScalar(0.001); scene.add(core);
-const flash=new THREE.Sprite(new THREE.SpriteMaterial({map:dotTex(3),color:0xffe9c9,transparent:true,opacity:0,depthWrite:false,blending:THREE.AdditiveBlending}));
-flash.position.copy(core.position); scene.add(flash);
+// ---------- 代码画的效果 ----------
+const FX={};
+// 奇点
+FX.core=add(new THREE.Sprite(new THREE.SpriteMaterial(addMat({color:0xfff6e8,opacity:0}))));
+// 原行星盘
+FX.disk=(()=>{ const n=MOBILE?1500:4000,g=new THREE.BufferGeometry(),p=new Float32Array(n*3),c=new Float32Array(n*3);
+  for(let i=0;i<n;i++){ const r=1.8+Math.pow(Math.random(),.7)*4.5,a=Math.random()*Math.PI*2; p.set([Math.cos(a)*r,(Math.random()-.5)*.12,Math.sin(a)*r],i*3);
+    const col=new THREE.Color().setHSL(.07+Math.random()*.05,.7,.35+Math.random()*.25); c.set([col.r,col.g,col.b],i*3); }
+  g.setAttribute('position',new THREE.BufferAttribute(p,3)); g.setAttribute('color',new THREE.BufferAttribute(c,3));
+  return add(new THREE.Points(g,new THREE.PointsMaterial(addMat({size:.07,vertexColors:true,opacity:0})))); })();
+// 螺旋星系
+FX.galaxy=(()=>{ const n=MOBILE?4000:12000,g=new THREE.BufferGeometry(),p=new Float32Array(n*3),c=new Float32Array(n*3);
+  for(let i=0;i<n;i++){ const arm=i%4,r=Math.pow(Math.random(),.55)*7+.2,a=arm/4*Math.PI*2+r*.6+(Math.random()-.5)*.55;
+    p.set([Math.cos(a)*r+(Math.random()-.5)*.35,(Math.random()-.5)*.4*(1.3-r/8),Math.sin(a)*r+(Math.random()-.5)*.35],i*3);
+    const t=Math.min(r/7.2,1), col=new THREE.Color(0xffd9a0).lerp(new THREE.Color(0x6f9bff),t).multiplyScalar(1-.35*t); c.set([col.r,col.g,col.b],i*3); }
+  g.setAttribute('position',new THREE.BufferAttribute(p,3)); g.setAttribute('color',new THREE.BufferAttribute(c,3));
+  return add(new THREE.Points(g,new THREE.PointsMaterial(addMat({size:.075,vertexColors:true,opacity:0})))); })();
+// 黑洞：黑球 + 发光吸积盘
+FX.bh=(()=>{ const grp=new THREE.Group();
+  const hole=new THREE.Mesh(new THREE.SphereGeometry(.35,48,48),new THREE.MeshBasicMaterial({color:0x000000,transparent:true,opacity:0})); grp.add(hole);
+  const c=document.createElement('canvas'); c.width=256; c.height=1; const g=c.getContext('2d'); const gr=g.createLinearGradient(0,0,256,0);
+  gr.addColorStop(0,'rgba(255,255,255,0)'); gr.addColorStop(.05,'rgba(255,240,210,1)'); gr.addColorStop(.35,'rgba(255,150,60,.85)'); gr.addColorStop(1,'rgba(120,40,200,0)');
+  g.fillStyle=gr; g.fillRect(0,0,256,1); const tex=new THREE.CanvasTexture(c);
+  const geo=new THREE.RingGeometry(.42,1.4,96,1); const uv=geo.attributes.uv, pos=geo.attributes.position;
+  for(let i=0;i<uv.count;i++){ const r=Math.hypot(pos.getX(i),pos.getY(i)); uv.setXY(i,(r-.42)/(1.4-.42),.5); }
+  const disk=new THREE.Mesh(geo,new THREE.MeshBasicMaterial({map:tex,transparent:true,side:THREE.DoubleSide,depthWrite:false,blending:THREE.AdditiveBlending,opacity:0}));
+  disk.rotation.x=-Math.PI/2+0.25; grp.add(disk); grp.userData={hole,disk}; return add(grp); })();
+// 宇宙微波背景：一张有斑点的大球壳
+FX.cmb=(()=>{ const c=document.createElement('canvas'); c.width=512; c.height=256; const g=c.getContext('2d');
+  for(let i=0;i<9000;i++){ const x=Math.random()*512,y=Math.random()*256,r=2+Math.random()*9,h=Math.random();
+    g.fillStyle=h<.5?`rgba(255,${140+h*150|0},60,.12)`:`rgba(60,${120+h*100|0},255,.12)`; g.beginPath(); g.arc(x,y,r,0,7); g.fill(); }
+  const t=new THREE.CanvasTexture(c); t.colorSpace=THREE.SRGBColorSpace;
+  return add(new THREE.Mesh(new THREE.SphereGeometry(40,64,32),new THREE.MeshBasicMaterial({map:t,side:THREE.BackSide,transparent:true,opacity:0,depthWrite:false}))); })();
+// 质子里的三颗夸克（代码画的，放进 Lux3D 的玻璃外壳里）
+FX.quarks=(()=>{ const grp=new THREE.Group(); [0xff3b3b,0x33ff77,0x3b7bff].forEach((col,i)=>{
+  const s=new THREE.Sprite(new THREE.SpriteMaterial(addMat({color:col,opacity:0}))); s.scale.setScalar(.55); s.userData.i=i; grp.add(s); }); return add(grp); })();
+// 质子中子飞来聚合
+FX.nucleons=(()=>{ const grp=new THREE.Group(); for(let i=0;i<10;i++){ const p=i%2==0;
+  const m=new THREE.Mesh(new THREE.SphereGeometry(.16,24,24),new THREE.MeshStandardMaterial({color:p?0xd23a3a:0x555a60,roughness:.35,metalness:.1,transparent:true,opacity:0}));
+  m.userData={a:Math.random()*7,b:Math.random()*3,ph:Math.random()}; grp.add(m);} return add(grp); })();
+// 夸克汤
+FX.soup=(()=>{ const n=MOBILE?1500:4000,g=new THREE.BufferGeometry(),p=new Float32Array(n*3),c=new Float32Array(n*3),seed=new Float32Array(n*3);
+  const cols=[0xff3b3b,0x33ff77,0x3b7bff,0xffffff,0xffd36b].map(x=>new THREE.Color(x));
+  for(let i=0;i<n;i++){ const u=Math.random()*2-1,a=Math.random()*Math.PI*2,r=Math.cbrt(Math.random())*3,s=Math.sqrt(1-u*u);
+    seed.set([Math.cos(a)*s*r,u*r,Math.sin(a)*s*r],i*3); const k=cols[(Math.random()*cols.length)|0]; c.set([k.r,k.g,k.b],i*3); }
+  p.set(seed); g.setAttribute('position',new THREE.BufferAttribute(p,3)); g.setAttribute('color',new THREE.BufferAttribute(c,3));
+  const o=add(new THREE.Points(g,new THREE.PointsMaterial(addMat({size:.09,vertexColors:true,opacity:0})))); o.userData.seed=seed; return o; })();
+// 暴胀：不断被急速拉大的网格
+FX.inflation=(()=>{ const grp=new THREE.Group(); for(let i=0;i<3;i++){
+  const m=new THREE.Mesh(new THREE.IcosahedronGeometry(1,3),new THREE.MeshBasicMaterial({color:i==1?0xb28cff:0x7ab8ff,wireframe:true,transparent:true,opacity:0,blending:THREE.AdditiveBlending,depthWrite:false}));
+  m.userData.ph=i/3; grp.add(m);} return add(grp); })();
+// 超新星
+let novaT=0;
 
-// ---------- 零件 ----------
-const rig=new THREE.Group(); scene.add(rig);
+// ---------- 加载模型 ----------
 const groups={}, mats={};
 const loader=new GLTFLoader(); loader.setMeshoptDecoder(MeshoptDecoder);
 const bar=document.querySelector('#loading i'); let loaded=0;
-function load(p){
-  return new Promise((res,rej)=>loader.load(`models/${p.file}.glb`,g=>{
-    const m=g.scene; if(p.rx) m.rotation.x=p.rx; m.updateMatrixWorld(true);
-    let box=new THREE.Box3().setFromObject(m), s=box.getSize(new THREE.Vector3());
-    m.scale.multiplyScalar(p.w/Math.max(s.x,s.z)); if(p.sy) m.scale.y*=p.sy; m.updateMatrixWorld(true);
-    box=new THREE.Box3().setFromObject(m); s=box.getSize(new THREE.Vector3());
-    if(p.h && s.y>p.h){ m.scale.y*=p.h/s.y; m.updateMatrixWorld(true); box=new THREE.Box3().setFromObject(m); }
-    const c=box.getCenter(new THREE.Vector3()); m.position.x-=c.x; m.position.z-=c.z; m.position.y-=box.min.y;
-    // 把零件包在一个以自身中心为原点的组里，方便飞行时绕中心转
-    const pivot=new THREE.Group(), half=(box.max.y-box.min.y)/2; m.position.y-=half; pivot.add(m);
-    const grp=new THREE.Group(); grp.add(pivot); pivot.position.y=half;
-    grp.position.set(p.x||0,p.y,p.z||0); grp.userData={base:grp.position.clone(),pivot,half};
-    mats[p.id]=[];
-    m.traverse(o=>{ if(o.isMesh){ o.material=o.material.clone(); o.material.transparent=true; mats[p.id].push(o.material); o.userData.pid=p.id; }});
-    groups[p.id]=grp; rig.add(grp); loaded++; bar.style.width=(loaded/PARTS.length*100)+'%'; res();
-  },undefined,rej));
-}
+function load(o){ return new Promise((res,rej)=>loader.load(`models/${o.file}.glb`,g=>{
+  const m=g.scene; m.updateMatrixWorld(true); let box=new THREE.Box3().setFromObject(m), s=box.getSize(new THREE.Vector3());
+  m.scale.multiplyScalar(o.size/Math.max(s.x,s.y,s.z)); m.updateMatrixWorld(true); box=new THREE.Box3().setFromObject(m);
+  m.position.sub(box.getCenter(new THREE.Vector3()));
+  const grp=new THREE.Group(), spin=new THREE.Group(); spin.add(m); grp.add(spin); grp.userData={spin,o,v:0,was:0}; grp.visible=false;
+  mats[o.id]=[]; m.traverse(x=>{ if(x.isMesh){ x.material=x.material.clone(); const mt=x.material; mt.transparent=true;
+    if(o.glow&&mt.map){ mt.emissive=new THREE.Color(0xffffff); mt.emissiveMap=mt.map; mt.emissiveIntensity=o.glow; if(o.tint) mt.emissive=new THREE.Color(o.tint); }
+    if(o.glass){ mt.opacity=.28; mt.depthWrite=false; mt.metalness=.2; mt.roughness=.05; }
+    mt.userData.base=mt.opacity; mats[o.id].push(mt); x.userData.pid=o.id; }});
+  groups[o.id]=grp; scene.add(grp); loaded++; bar.style.width=(loaded/OBJS.length*100)+'%'; res(); },undefined,rej)); }
 
-// 导流管
-const pipeCurve=new THREE.CatmullRomCurve3([new THREE.Vector3(0.28,2.66,0.02),new THREE.Vector3(0.72,2.58,0.08),
-  new THREE.Vector3(1.15,2.2,0.2),new THREE.Vector3(1.6,1.35,0.32),new THREE.Vector3(1.74,0.95,0.35)]);
-const pipeMat=new THREE.MeshStandardMaterial({color:0xb9bcc2,metalness:.85,roughness:.35,transparent:true});
-const pipe=new THREE.Mesh(new THREE.TubeGeometry(pipeCurve,64,0.022,12,false),pipeMat); pipe.userData.pid='pipe'; rig.add(pipe); mats.pipe=[pipeMat];
-
-// 蒸汽 / 酒滴 / 酒流
-const N=MOBILE?160:280, steamGeo=new THREE.BufferGeometry(), sp=new Float32Array(N*3), sl=new Float32Array(N);
-for(let i=0;i<N;i++) sl[i]=Math.random();
-steamGeo.setAttribute('position',new THREE.BufferAttribute(sp,3));
-const steamMat=new THREE.PointsMaterial({size:.17,map:DOT,transparent:true,opacity:0,depthWrite:false,color:0xcfe3ff,blending:THREE.AdditiveBlending});
-rig.add(new THREE.Points(steamGeo,steamMat));
-const drops=[], dropMat=new THREE.MeshBasicMaterial({color:0xbfe0ff,transparent:true,opacity:0});
-for(let i=0;i<6;i++){ const d=new THREE.Mesh(new THREE.SphereGeometry(.03,12,12),dropMat); d.userData.t=i/6; rig.add(d); drops.push(d); }
-const flows=[], flowMat=new THREE.MeshBasicMaterial({color:0xffe2a8,transparent:true,opacity:0});
-for(let i=0;i<14;i++){ const f=new THREE.Mesh(new THREE.SphereGeometry(.032,10,10),flowMat); f.userData.t=i/14; rig.add(f); flows.push(f); }
-
-// 星云阶段：螺旋星系
-const GN=MOBILE?2500:6000, gg=new THREE.BufferGeometry(), gp=new Float32Array(GN*3), gc=new Float32Array(GN*3);
-for(let i=0;i<GN;i++){ const arm=i%3, r=Math.pow(Math.random(),0.6)*6.5+0.3, a=arm/3*Math.PI*2+r*0.55+(Math.random()-.5)*0.5;
-  gp.set([Math.cos(a)*r+(Math.random()-.5)*.4,(Math.random()-.5)*0.35*(1.2-r/7),Math.sin(a)*r+(Math.random()-.5)*.4],i*3);
-  const t=r/7, col=new THREE.Color().setHSL(0.08+t*0.55,0.8,0.55+0.25*(1-t)); gc.set([col.r,col.g,col.b],i*3); }
-gg.setAttribute('position',new THREE.BufferAttribute(gp,3)); gg.setAttribute('color',new THREE.BufferAttribute(gc,3));
-const galaxyMat=new THREE.PointsMaterial({size:.07,map:DOT,vertexColors:true,transparent:true,opacity:0,depthWrite:false,blending:THREE.AdditiveBlending});
-const galaxy=new THREE.Points(galaxyMat?gg:gg,galaxyMat); galaxy.position.y=1.8; galaxy.rotation.x=0.35; scene.add(galaxy);
-
-// 零件名标签
-const lblBox=document.getElementById('lbls'); const lbls={};
-PARTS.forEach(p=>{ const d=document.createElement('div'); d.className='lbl'; d.textContent=p.name; lblBox.appendChild(d); lbls[p.id]=d; });
+// 名字标签
+const lblBox=document.getElementById('lbls'), lbls={};
+OBJS.forEach(o=>{ const d=document.createElement('div'); d.className='lbl'; d.textContent=o.name; lblBox.appendChild(d); lbls[o.id]=d; });
 
 // ---------- 状态 ----------
-const S={ex:0,steam:0,drip:0,flow:0,fire:0,galaxy:0};
-let step=STEPS.hero; const camGoal=new THREE.Vector3(), tgtGoal=new THREE.Vector3(); let flying=0, stepName='hero';
-const fade={};
-const camK=()=>innerWidth>760?1.5:2.1;
-function camFor(st){ const t=new THREE.Vector3(...st.tgt); return new THREE.Vector3(...st.cam).sub(t).multiplyScalar(st.galaxy?1:camK()).add(t); }
+let step=STEPS.today, stepName='today', viewName='today', ready=false;
+const fxOn={}; Object.keys(FX).forEach(k=>fxOn[k]=0); FX.nova={};
+const camGoal=new THREE.Vector3(), tgtGoal=new THREE.Vector3(); let flying=0;
 const tmp=new THREE.Vector3(), tmp2=new THREE.Vector3();
-function setStep(name){
-  const prev=step; step=STEPS[name]; stepName=name; camGoal.copy(camFor(step)); tgtGoal.set(...step.tgt); flying=1.8;
-  document.querySelectorAll('#dots i').forEach((d,i)=>d.classList.toggle('on',order[i]===name));
-  if(intro.on||!ready) return;
-  // 换屏的「啪」：拆得更开时，被聚焦的零件甩出火花和光环
-  if((step.ex||0)>(prev.ex||0)+0.05 || step.galaxy){
-    (step.focus||['zeng','tianguo']).forEach(id=>{ const g=groups[id]; if(!g) return;
-      g.getWorldPosition(tmp); tmp.y+=g.userData.half||0.3; burst(tmp,MOBILE?140:320,3.2,1.1); ring(tmp,0x9cc9ff,3.2,1.0); });
-  }
-  if(step.galaxy){ bigBang(0.6); }
-}
+const camK=()=>innerWidth>760?1:1.45;
+function camFor(st){ const d=st.d*camK(); return new THREE.Vector3(Math.sin(.5)*d*Math.cos(st.el), Math.sin(st.el)*d, Math.cos(.5)*d*Math.cos(st.el)); }
+let montage=null;
 
-// ---------- 开场：大爆炸 ----------
-const intro={on:false,t:0};
-const fly={};
-function startIntro(){
-  intro.on=true; intro.t=0; document.body.classList.add('intro');
-  PARTS.forEach((p,i)=>{ const a=i/PARTS.length*Math.PI*2+Math.random()*0.4, u=(Math.random()-.3)*1.2;
-    fly[p.id]={dir:new THREE.Vector3(Math.cos(a),u,Math.sin(a)).normalize().multiplyScalar(4.5+Math.random()*2.5),
-      axis:new THREE.Vector3(Math.random()-.5,Math.random()-.5,Math.random()-.5).normalize(), spin:6+Math.random()*6, delay:0.12*i}; });
-  camera.position.set(0,2.2,13); controls.target.set(0,1.8,0);
+function view(name){ // 切到某个画面（被滚动或倒放调用）
+  const prev=STEPS[viewName], st=STEPS[name]; viewName=name;
+  camGoal.copy(camFor(st)); tgtGoal.set(0,0,0); flying=2;
+  // 「拆开」：离场的模型炸成火花，进场的从中心冒出来带一圈光
+  OBJS.forEach(o=>{ const g=groups[o.id]; if(!g) return; const was=isShown(prev,o.id), now=isShown(st,o.id);
+    if(was&&!now&&g.visible){ g.getWorldPosition(tmp); burst(tmp,MOBILE?250:600,4,1.3); ring(tmp,0xffd7a0,4,1.1); }
+    if(!was&&now){ g.userData.v=0; } });
+  if(name==='singular'&&prev!==st) burst(tmp.set(0,0,0),400,3,1.2,[PAL[3],PAL[4]]);
 }
-function bigBang(scale=1){
-  burst(core.position,(MOBILE?1400:3200)*scale,11*scale,2.2);
-  ring(core.position,0xffd7a0,14*scale,1.6,true); ring(core.position,0x7ab8ff,10*scale,1.9,false);
-  flashT=0; flashS=scale;
-}
-let flashT=9, flashS=1;
-const BANG=1.1, OUT=1.9, BACK=4.2, END=5.0;
-const easeOutBack=x=>{const c1=1.4,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2);};
-function stepIntro(dt,t){
-  intro.t+=dt; const T=intro.t;
-  // 奇点蓄力
-  if(T<BANG){ const u=T/BANG; core.scale.setScalar(0.05+u*u*0.9+Math.sin(T*40)*0.03*u); core.material.opacity=1; bangLight.intensity=u*8; }
-  else if(!intro.banged){ intro.banged=true; bigBang(1); core.scale.setScalar(0.001); }
-  else { core.material.opacity=Math.max(0,1-(T-BANG)*3); }
-  for(const p of PARTS){ const g=groups[p.id], f=fly[p.id]; if(!g) continue;
-    const base=g.userData.base, ctr=tmp.copy(core.position).sub(new THREE.Vector3(0,g.userData.half,0));
-    let pos, sc, rot;
-    if(T<BANG){ pos=ctr; sc=0.001; rot=0; }
-    else if(T<OUT){ const u=(T-BANG)/(OUT-BANG), e=1-Math.pow(1-u,3); pos=tmp2.copy(ctr).addScaledVector(f.dir,e); sc=Math.min(1,u*2.2); rot=f.spin*u; }
-    else { const u=Math.min(1,Math.max(0,(T-OUT-f.delay)/(BACK-OUT-0.9))), e=easeOutBack(u);
-      const from=tmp2.copy(ctr).add(f.dir); pos=from.lerp(base,e); sc=1; rot=f.spin*(1-u)+0;
-      if(u>=1&&!f.landed){ f.landed=true; g.getWorldPosition(tmp); tmp.y+=g.userData.half; burst(tmp,60,1.6,0.6,[PAL[0],PAL[3]]); } }
-    g.position.copy(pos); g.userData.pivot.scale.setScalar(sc); g.userData.pivot.setRotationFromAxisAngle(f.axis,rot);
-    // 飞行拖尾
-    if(T>BANG && T<BACK && sc>0.2){ g.getWorldPosition(tmp); tmp.y+=g.userData.half;
-      for(let k=0;k<(MOBILE?2:5);k++) emit(tmp.x+(Math.random()-.5)*.2,tmp.y+(Math.random()-.5)*.2,tmp.z+(Math.random()-.5)*.2,(Math.random()-.5)*.3,(Math.random()-.5)*.3,(Math.random()-.5)*.3,0.7,PAL[(Math.random()*3)|0]); }
-  }
-  pipe.visible=T>BACK; pipeMat.opacity=Math.min(1,(T-BACK)*2);
-  // 镜头从远处推进
-  camera.position.lerp(tmp.copy(camFor(STEPS.hero)), 1-Math.pow(T<BANG?0.6:0.25,dt));
-  controls.target.lerp(tmp2.set(...STEPS.hero.tgt),1-Math.pow(0.3,dt));
-  if(T>END){ intro.on=false; document.body.classList.remove('intro');
-    PARTS.forEach(p=>{ const g=groups[p.id]; g.userData.pivot.rotation.set(0,0,0); g.userData.pivot.scale.setScalar(1); fly[p.id].landed=false; }); intro.banged=false; setStep(stepName); }
-}
+const isShown=(st,id)=>st.show==='orbit'?true:!!(st.show&&st.show[id]);
+function setStep(name){ stepName=name; document.querySelectorAll('#dots i').forEach((d,i)=>d.classList.toggle('on',order[i]===name));
+  if(!ready) return; if(STEPS[name].montage) startMontage(); else { if(montage){montage=null;document.body.classList.remove('intro');} view(name); } }
+function startMontage(){ montage={t:0,i:0}; document.body.classList.add('intro'); viewName='singular'; view('singular'); }
 
 // ---------- 尺寸 ----------
-function resize(){
-  const w=innerWidth,h=innerHeight; renderer.setSize(w,h,false); composer.setSize(w,h); camera.aspect=w/h;
-  camera.setViewOffset(w,h, w>760? w*0.16:0, w>760?0:h*0.14, w,h); camera.updateProjectionMatrix();
-}
+function resize(){ const w=innerWidth,h=innerHeight; renderer.setSize(w,h,false); composer.setSize(w,h); camera.aspect=w/h;
+  camera.setViewOffset(w,h,w>760?w*.16:0,w>760?0:h*.16,w,h); camera.updateProjectionMatrix(); }
 addEventListener('resize',resize);
 
 // ---------- 主循环 ----------
-const clock=new THREE.Clock(); const lerp=(a,b,k)=>a+(b-a)*k; let ready=false;
+const clock=new THREE.Clock(), lerp=(a,b,k)=>a+(b-a)*k;
+const easeBack=x=>{const c1=1.5,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2);};
 function tick(){
-  const dt=Math.min(clock.getDelta(),0.05), t=clock.elapsedTime, k=1-Math.pow(0.0015,dt);
-  for(const key of Object.keys(S)) S[key]=lerp(S[key],intro.on?0:(step[key]||0),k);
+  const dt=Math.min(clock.getDelta(),.05), t=clock.elapsedTime, k=1-Math.pow(.002,dt);
+  // 倒放时间线
+  if(montage){ montage.t+=dt; while(montage.i<MONTAGE.length && montage.t>=MONTAGE[montage.i][1]){
+      const [nm]=MONTAGE[montage.i]; if(montage.i===1) bigBang(1); view(nm); montage.i++; }
+    if(montage.t>MONTAGE[MONTAGE.length-1][1]+1.2){ montage=null; document.body.classList.remove('intro'); if(stepName!=='rebuild'&&stepName!=='today') view(stepName); } }
+  const st=STEPS[viewName], fx=st.fx||[];
+  for(const key of Object.keys(fxOn)) fxOn[key]=lerp(fxOn[key],fx.includes(key)?1:0,k);
 
-  if(intro.on) stepIntro(dt,t);
-  else {
-    PARTS.forEach((p,i)=>{ const g=groups[p.id];
-      const asm=tmp.set(g.userData.base.x+S.ex*(p.exX||0), g.userData.base.y+S.ex*p.ex, g.userData.base.z);
-      if(S.galaxy>0.001){ // 星云阶段：零件绕中心公转
-        const a=i/PARTS.length*Math.PI*2+t*0.18, R=3.0;
-        tmp2.set(Math.cos(a)*R, 1.4+Math.sin(t*0.8+i)*0.35, Math.sin(a)*R*0.75);
-        asm.lerp(tmp2,S.galaxy); g.userData.pivot.rotation.y=S.galaxy*t*0.6;
-        g.userData.pivot.scale.setScalar(1-S.galaxy*0.35);
-      } else { g.userData.pivot.rotation.y=0; g.userData.pivot.scale.setScalar(1); }
-      g.position.copy(asm);
-      const on=!step.focus||step.focus.includes(p.id);
-      fade[p.id]=lerp(fade[p.id]??1,on?1:0.12,k);
-      for(const m of mats[p.id]){ m.opacity=fade[p.id]; m.depthWrite=fade[p.id]>0.6; }
-      // 标签
-      const L=lbls[p.id]; if(S.galaxy>0.05){ g.getWorldPosition(tmp2); tmp2.y+=g.userData.half*1.6+0.2; tmp2.project(camera);
-        L.style.transform=`translate(${(tmp2.x+1)/2*innerWidth}px,${(1-tmp2.y)/2*innerHeight}px) translate(-50%,-100%)`; L.style.opacity=S.galaxy; }
-      else L.style.opacity=0;
-    });
-    const pipeOn=(!step.focus||step.focus.includes('pipe'))?1:0.12;
-    fade.pipe=lerp(fade.pipe??1,(S.ex>0.08||step.galaxy)?0:pipeOn,k); pipeMat.opacity=fade.pipe; pipe.visible=fade.pipe>0.02;
-  }
+  // 模型
+  OBJS.forEach((o,i)=>{ const g=groups[o.id]; if(!g) return; const on=isShown(st,o.id);
+    g.userData.v=lerp(g.userData.v,on?1:0,on?1-Math.pow(.06,dt):1-Math.pow(1e-6,dt));
+    const v=g.userData.v; g.visible=v>.01;
+    let p=[0,0,0,1];
+    if(st.show==='orbit'){ const a=i/OBJS.length*Math.PI*2+t*.15; p=[Math.cos(a)*4.2,Math.sin(t*.7+i)*.5,Math.sin(a)*4.2*.7,.65]; }
+    else if(on){ const s=st.show[o.id]; p=s==='orbit'?[Math.cos(t*.35)*5.2,0,Math.sin(t*.35)*5.2,.32]:s; }
+    if(on||st.show==='orbit') g.position.lerp(tmp.set(p[0],p[1],p[2]), viewName===g.userData.lastView?1-Math.pow(.05,dt):1);
+    g.userData.lastView=viewName;
+    g.scale.setScalar(Math.max(.001,p[3]*easeBack(Math.min(v,1))));
+    g.userData.spin.rotation.y+=dt*(o.id==='he'||o.id==='proton'?.5:.12);
+    const L=lbls[o.id]; if(st.show==='orbit'&&v>.3){ g.getWorldPosition(tmp2); tmp2.y+=o.size*.45; tmp2.project(camera);
+      L.style.transform=`translate(${(tmp2.x+1)/2*innerWidth}px,${(1-tmp2.y)/2*innerHeight}px) translate(-50%,-100%)`; L.style.opacity=v; } else L.style.opacity=0;
+  });
+  sunLight.position.copy(groups.sun?groups.sun.position:tmp.set(-9,2.5,-14)); sunLight.intensity=groups.sun&&groups.sun.visible?60:0;
 
-  // 蒸汽
-  const yBot=1.45+S.ex*0.55, yTop=2.75+S.ex*4.3, sOn=S.steam*(1-S.galaxy);
-  for(let i=0;i<N;i++){ sl[i]+=dt*(0.18+0.12*((i*7)%5)/5); if(sl[i]>1) sl[i]-=1;
-    const a=i*2.399+t*0.3, r=0.45*Math.sqrt((i%37)/37)*(1-sl[i]*0.35);
-    sp[i*3]=Math.cos(a)*r; sp[i*3+1]=lerp(yBot,yTop,sl[i]); sp[i*3+2]=Math.sin(a)*r; }
-  steamGeo.attributes.position.needsUpdate=true; steamMat.opacity=0.32*sOn;
-  const tipY=2.95+S.ex*4.35, panY=2.7+S.ex*3.55;
-  drops.forEach(d=>{ d.userData.t=(d.userData.t+dt*0.7)%1; const u=d.userData.t; d.position.set(0,lerp(tipY,panY,u*u),0); d.scale.setScalar(u<0.1?u*10:1); });
-  dropMat.opacity=S.drip;
-  flows.forEach(f=>{ f.userData.t=(f.userData.t+dt*0.28)%1; pipeCurve.getPointAt(f.userData.t,tmp); f.position.copy(tmp); });
-  flowMat.opacity=S.flow*(fade.pipe??1);
-  // 灶里飘火星
-  fire.intensity=S.fire*(2.6+Math.sin(t*13)*0.6+Math.sin(t*7.3)*0.4);
-  if(S.fire>0.3 && Math.random()<0.6) emit((Math.random()-.5)*.4,0.35,0.7,(Math.random()-.5)*.3,0.8+Math.random()*.8,0.3,1.2,PAL[1+((Math.random()*2)|0)]);
+  // 效果
+  const core=FX.core; core.material.opacity=fxOn.core; core.scale.setScalar((1.1+Math.sin(t*6)*.15)*fxOn.core+.001);
+  if(fxOn.core>.5&&Math.random()<.5) emit((Math.random()-.5)*4,(Math.random()-.5)*4,(Math.random()-.5)*4,0,0,0,.01,PAL[0]);
+  FX.disk.material.opacity=fxOn.disk; FX.disk.rotation.y+=dt*.25;
+  FX.galaxy.material.opacity=fxOn.galaxy*.95; FX.galaxy.rotation.y+=dt*.06; FX.galaxy.rotation.x=.18;
+  const bh=FX.bh.userData; bh.hole.material.opacity=0; bh.disk.material.opacity=fxOn.bh; bh.disk.rotation.z+=dt*.8; FX.bh.scale.setScalar(.01+fxOn.bh*1.25);
+  FX.cmb.material.opacity=fxOn.cmb*.32; FX.cmb.rotation.y+=dt*.01;
+  FX.quarks.children.forEach(q=>{ const a=t*1.6+q.userData.i*2.094; q.position.set(Math.cos(a)*.38,Math.sin(a*1.3)*.25,Math.sin(a)*.38); q.material.opacity=fxOn.quarks; q.scale.setScalar(.5+.08*Math.sin(t*9+q.userData.i)); });
+  FX.nucleons.children.forEach(n=>{ const u=((t*.35+n.userData.ph)%1), r=3.2*(1-u);
+    n.position.set(Math.cos(n.userData.a)*r*Math.cos(n.userData.b),Math.sin(n.userData.b)*r*.6,Math.sin(n.userData.a)*r); n.material.opacity=fxOn.nucleons*(u<.92?1:(1-u)/.08);
+    if(fxOn.nucleons>.5&&u>.97&&Math.random()<.3) burst(tmp.set(0,0,0),40,2,.5,[PAL[0],PAL[1]]); });
+  const sp=FX.soup.geometry.attributes.position.array, seed=FX.soup.userData.seed; FX.soup.material.opacity=fxOn.soup;
+  if(fxOn.soup>.01) for(let i=0;i<sp.length;i+=3){ sp[i]=seed[i]+Math.sin(t*7+i)*.08; sp[i+1]=seed[i+1]+Math.cos(t*6.3+i*1.7)*.08; sp[i+2]=seed[i+2]+Math.sin(t*8.1+i*.7)*.08; }
+  FX.soup.geometry.attributes.position.needsUpdate=true; FX.soup.rotation.y+=dt*.3;
+  FX.inflation.children.forEach(m=>{ const u=((t*.45+m.userData.ph)%1); m.scale.setScalar(.05*Math.pow(160,u)); m.material.opacity=fxOn.inflation*(1-u)*.9; m.rotation.y+=dt*.2; });
+  if(fx.includes('nova')){ novaT-=dt; if(novaT<=0){ novaT=1.6+Math.random()*1.5; tmp.set((Math.random()-.5)*14,(Math.random()-.3)*5,-4-Math.random()*6); burst(tmp,MOBILE?200:500,5,1.6,[PAL[0],PAL[3],PAL[4]]); ring(tmp,0xb28cff,3,1.2); } }
 
-  // 星系 / 闪光
-  galaxyMat.opacity=S.galaxy*0.9; galaxy.rotation.y+=dt*0.12;
-  flashT+=dt; const fu=flashT/0.9; flash.material.opacity=fu<1?(1-fu)*(1-fu)*flashS:0; flash.scale.setScalar(2+fu*18*flashS);
-  if(!intro.on) bangLight.intensity=fu<1?(1-fu)*30*flashS:0; else if(intro.banged) bangLight.intensity=fu<1?(1-fu)*30:0;
-  stepSparks(dt); stepRings(dt);
-  nebulae.forEach((n,i)=>n.material.opacity=0.05+0.025*Math.sin(t*0.3+i));
-  stars.rotation.y+=dt*0.004;
-
-  if(!intro.on){
-    if(flying>0){ flying-=dt; camera.position.lerp(camGoal,1-Math.pow(0.02,dt)); }
-    controls.target.lerp(tgtGoal,1-Math.pow(0.02,dt));
-  }
-  controls.update(); composer.render(); requestAnimationFrame(tick);
+  flashT+=dt; const fu=flashT/1; flash.material.opacity=fu<1?(1-fu)*(1-fu):0; flash.scale.setScalar(2+fu*24); bangLight.intensity=fu<1?(1-fu)*40:0;
+  stepSparks(dt); stepRings(dt); stars.rotation.y+=dt*.004; nebulae.forEach((n,i)=>n.material.opacity=.04+.02*Math.sin(t*.3+i));
+  if(flying>0){ flying-=dt; camera.position.lerp(camGoal,1-Math.pow(.03,dt)); }
+  controls.target.lerp(tgtGoal,1-Math.pow(.03,dt)); controls.update(); composer.render(); requestAnimationFrame(tick);
 }
 
-// ---------- 点零件 ----------
-let down=null;
-canvas.addEventListener('pointerdown',e=>{down=[e.clientX,e.clientY];flying=0;});
-addEventListener('pointerup',e=>{ if(!down) return; const moved=Math.hypot(e.clientX-down[0],e.clientY-down[1]); down=null;
-  if(moved>5||e.target!==canvas||intro.on) return;
-  const r=canvas.getBoundingClientRect(), ray=new THREE.Raycaster();
-  ray.setFromCamera({x:(e.clientX-r.left)/r.width*2-1,y:-(e.clientY-r.top)/r.height*2+1},camera);
-  const hit=ray.intersectObjects(rig.children,true).find(h=>h.object.userData.pid&&h.object.visible);
-  if(hit){ showTip(hit.object.userData.pid); burst(hit.point,120,1.8,0.7); ring(hit.point,0x9cc9ff,0.9,0.6,false); } else hideTip(); });
-const tip=document.getElementById('tip');
-function showTip(id){
-  if(id==='pipe'){ tip.querySelector('b').textContent='导流管'; tip.querySelector('.d').textContent='把接酒盘里的酒引出甑桶，流进坛子。'; tip.querySelector('.pr').textContent='这根管子是网页代码画的，不是生成的。'; }
-  else{ const p=PARTS.find(x=>x.id===id); tip.querySelector('b').textContent=p.name; tip.querySelector('.d').textContent=p.desc; tip.querySelector('.pr').textContent='Lux3D 提示词：'+p.prompt; }
-  tip.classList.add('show');
-}
-function hideTip(){tip.classList.remove('show');}
-tip.querySelector('.x').onclick=hideTip;
+// ---------- 点模型 ----------
+let down=null; canvas.addEventListener('pointerdown',e=>{down=[e.clientX,e.clientY];flying=0;});
+addEventListener('pointerup',e=>{ if(!down) return; const mv=Math.hypot(e.clientX-down[0],e.clientY-down[1]); down=null; if(mv>5||e.target!==canvas) return;
+  const r=canvas.getBoundingClientRect(), ray=new THREE.Raycaster(); ray.setFromCamera({x:(e.clientX-r.left)/r.width*2-1,y:-(e.clientY-r.top)/r.height*2+1},camera);
+  const hit=ray.intersectObjects(Object.values(groups),true).find(h=>h.object.userData.pid);
+  if(hit){ const o=OBJS.find(x=>x.id===hit.object.userData.pid); tip.querySelector('b').textContent=o.name; tip.querySelector('.d').textContent='用 Aholo Lux3D 从一句话生成。'; tip.querySelector('.pr').textContent='提示词：'+o.prompt; tip.classList.add('show'); burst(hit.point,150,2,.7); ring(hit.point,0x9cc9ff,1,.6); }
+  else tip.classList.remove('show'); });
+const tip=document.getElementById('tip'); tip.querySelector('.x').onclick=()=>tip.classList.remove('show');
 
 // ---------- 滚动 ----------
 const secs=[...document.querySelectorAll('section')], order=secs.map(s=>s.dataset.step);
 document.getElementById('dots').innerHTML=order.map(()=>'<i></i>').join('');
-const io=new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){
-  secs.forEach(s=>s.classList.toggle('on',s===e.target)); setStep(e.target.dataset.step); hideTip(); }}); },{rootMargin:'-45% 0px -45% 0px'});
+const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ secs.forEach(s=>s.classList.toggle('on',s===e.target)); setStep(e.target.dataset.step); tip.classList.remove('show'); }}),{rootMargin:'-45% 0px -45% 0px'});
 secs.forEach(s=>io.observe(s));
-document.getElementById('prompts').innerHTML=PARTS.map(p=>`<li><b>${p.name}</b>${p.prompt}</li>`).join('');
-document.getElementById('replay').onclick=()=>{ scrollTo({top:0,behavior:'smooth'}); setTimeout(startIntro,REDUCED?0:500); };
+document.getElementById('prompts').innerHTML=OBJS.map(o=>`<li><b>${o.name}</b>${o.prompt}</li>`).join('');
+document.getElementById('replay').onclick=()=>startMontage();
 
-// ---------- 启动 ----------
-resize(); camera.position.copy(camFor(STEPS.hero)); controls.target.set(...STEPS.hero.tgt);
-Promise.all(PARTS.map(load)).then(()=>{
-  document.getElementById('loading').classList.add('done'); secs[0].classList.add('on');
-  camGoal.copy(camFor(STEPS.hero)); tgtGoal.set(...STEPS.hero.tgt);
-  ready=true; if(REDUCED){ document.body.classList.remove('intro'); } else startIntro();
-  tick();
+// ---------- 启动：先来一次大爆炸 ----------
+resize(); camera.position.copy(camFor(STEPS.singular)); controls.target.set(0,0,0);
+Promise.all(OBJS.map(load)).then(()=>{ document.getElementById('loading').classList.add('done'); secs[0].classList.add('on'); ready=true;
+  if(REDUCED){ view('today'); document.body.classList.remove('intro'); } else startMontage(); tick();
 }).catch(err=>{ document.querySelector('#loading p').textContent='模型加载失败：'+err.message; });
 </script>
 </body>
